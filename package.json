@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server",
-    "debug": "DEBUG=express:*,app:* npm run dev"
+    "build": "nodemon ./src/server",
+    "debug": "DEBUG=express:*,app:* npm run build"
   },
   "keywords": [],
   "author": "Hugo Andrés Diáz Bernal <hugoandresdiazbernal@gmail.com>",
