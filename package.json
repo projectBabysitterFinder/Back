@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/server",
+    "dev": "DEBUG=app:* nodemon ./src/server",
+    "start": "NODE_ENV=production node index",
     "debug": "DEBUG=express:*,app:* npm run dev"
   },
   "keywords": [],
@@ -21,13 +22,20 @@
     "nanoid": "^3.1.12"
   },
   "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
-    "nodemon": "^2.0.4"
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
