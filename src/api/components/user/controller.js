@@ -22,10 +22,10 @@ module.exports = (injectedStore) => {
       id: body.id,
       name: body.name,
       username: body.username,
-      email: body.email,
-      phone: body.phone,
-      create: body.create,
-      status: body.status,
+      // email: body.email,
+      // phone: body.phone,
+      // create: body.create,
+      // status: body.status,
     };
 
     if (body.id) {

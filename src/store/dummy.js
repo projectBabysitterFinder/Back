@@ -12,11 +12,11 @@ const upsert = async (tabla, data) => {
 		db[tabla] = [];
 	}
 	db[tabla].push(data);
-	// console.log(db);
+	console.log(db)
 };
-// const remove = async (tabla, id) => {
-// 	return true;
-// };
+const remove = async (tabla, id) => {
+	return true;
+};
 const query = async (tabla, q) => {
 	let col = await list(tabla);
 	let keys = Object.keys(q);
@@ -30,6 +30,6 @@ module.exports = {
 	list,
 	get,
 	upsert,
-	// remove,
+	remove,
 	query,
 };

@@ -4,19 +4,19 @@ const config = require('../config/index');
 const secret = config.authJwtSecret;
 
 const sign = (data) => {
-  return jwt.sign(data, 'secreto');
+  return jwt.sign(data, secret);
 };
 
 const verify = (token) => {
   return jwt.verify(token, secret);
 };
 
-// const check = {
-//   own: function (req, owner) {
-//     const decoded = decodeHeader(req);
-//     console.log(decoded);
-//   },
-// };
+const check = {
+  own: function (req, owner) {
+    const decoded = decodeHeader(req);
+    console.log(decoded);
+  },
+};
 
 const getToken = (auth) => {
   if (!auth) {
@@ -43,5 +43,5 @@ const decodeHeader = (req) => {
 
 module.exports = {
   sign,
-  decodeHeader
+  check,
 };
