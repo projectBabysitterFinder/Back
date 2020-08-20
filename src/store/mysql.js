@@ -1,11 +1,14 @@
 const mysql = require('mysql');
 require('dotenv').config();
+const debug = require('debug')('app:database');
+
 
 const dbconf = {
 	host: process.env.DB_HOST,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
 	database: process.env.DB_NAME,
+	dbPort: process.env.DB_PORT
 };
 
 let connection;
@@ -18,7 +21,7 @@ function handleCon() {
 			console.error('[db err]', err);
 			setTimeout(handleCon, 2000);
 		} else {
-			// console.log('DB Connected!');
+			debug('DB Connected!');
 		}
 	});
 
@@ -34,43 +37,10 @@ function handleCon() {
 
 handleCon();
 
-const listGas = (table) => {
+const list = (table) => {
 	return new Promise((resolve, reject) => {
 		connection.query(
-			`SELECT
-			  *
-			  FROM gasolineras.${table}
-			  INNER JOIN gasolineras.prices
-			  ON places.place_id = prices.place_id`,
-			(err, data) => {
-				if (err) return reject(err);
-				resolve(data);
-			}
-		);
-	});
-};
-
-const getGas = (tabla, id) => {
-	return new Promise((resolve, reject) => {
-		connection.query(
-			`SELECT
-        *
-        FROM gasolineras.${tabla}
-        INNER JOIN gasolineras.prices
-        ON places.place_id = prices.place_id
-        WHERE places.id = ${id} `,
-			(err, data) => {
-				if (err) return reject(err);
-				resolve(data);
-			}
-		);
-	});
-};
-
-const list = (table, id) => {
-	return new Promise((resolve, reject) => {
-		connection.query(
-			`SELECT * FROM gasolineras.${table}`,
+			`SELECT * FROM ${table}`,
 			(err, data) => {
 				if (err) return reject(err);
 				resolve(data);
@@ -82,7 +52,7 @@ const list = (table, id) => {
 const get = (table, id) => {
 	return new Promise((resolve, reject) => {
 		connection.query(
-			`SELECT * FROM gasolineras.${table} WHERE id = ${id}`,
+			`SELECT * FROM ${table} WHERE id = ${id}`,
 			(err, data) => {
 				if (err) return reject(err);
 				resolve(data);
@@ -153,8 +123,6 @@ function query(table, query) {
 }
 
 module.exports = {
-	listGas,
-	getGas,
 	list,
 	get,
 	upsert,
