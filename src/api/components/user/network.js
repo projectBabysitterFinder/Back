@@ -34,8 +34,8 @@ const upsert = (req, res, next) => {
 const remove = (req, res, next) => {
   controller
     .remove(req.params.id)
-    .then((report) => {
-      response.success(req, res, report, 201);
+    .then((user) => {
+      response.success(req, res, user, 201);
     })
     .catch(next);
 };

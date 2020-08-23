@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config/index');
 const error = require('../utils/error');
+
 const secret = config.authJwtSecret;
 
 const sign = (data) => {
@@ -14,7 +15,7 @@ const verify = (token) => {
 const check = {
   own: function (req, owner) {
     const decoded = decodeHeader(req);
-    console.log(decoded);
+    console.log(decoded.id);
 
     if (decoded.id !== owner) {
       throw error('No puedes hacer esto', 401);

@@ -15,7 +15,7 @@ module.exports = (injectedStore) => {
 
     return bcrypt.compare(password, data.password).then((sonIguales) => {
       if (sonIguales === true) {
-        return auth.sign(data);
+        return auth.sign({...data});
       } else {
         throw new Error('Información invalida');
       }
