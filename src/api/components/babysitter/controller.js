@@ -1,5 +1,3 @@
-const auth = require('../auth');
-const { nanoid } = require('nanoid');
 const TABLA = 'babysitter';
 
 module.exports = (injectedStore) => {

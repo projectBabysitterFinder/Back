@@ -1,5 +1,4 @@
 const express = require('express');
-const secure = require('./secure');
 const response = require('../../../network/response');
 const router = express.Router();
 const controller = require('./index');
@@ -43,7 +42,7 @@ const remove = (req, res, next) => {
 router.get('/', list);
 router.get('/:id', get);
 router.post('/', upsert);
-router.put('/', secure('update'), upsert);
+router.put('/', upsert);
 router.delete('/:id', remove);
 
 module.exports = router;

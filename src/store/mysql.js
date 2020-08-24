@@ -38,7 +38,7 @@ handleCon();
 
 const list = (table) => {
   return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM 2UMUGi2aR3.${table}`, (err, data) => {
+    connection.query(`SELECT * FROM ${table}`, (err, data) => {
       if (err) return reject(err);
       resolve(data);
     });
@@ -47,51 +47,22 @@ const list = (table) => {
 
 const get = (table, id) => {
   return new Promise((resolve, reject) => {
-    connection.query(
-      `SELECT * FROM 2UMUGi2aR3.${table} WHERE id = ${id}`,
-      (err, data) => {
-        if (err) return reject(err);
-        resolve(data);
-      }
-    );
+    connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
+      if (err) return reject(err);
+      resolve(data);
+    });
   });
 };
 
-const insert = (table, data) => {
+const upsert = (table, data, query) => {
   return new Promise((resolve, reject) => {
-    connection.query(
-      `INSERT INTO ${table} SET ?`,
-      // `INSERT INTO ${table} (name, username, password) VALUES (${data.name}, ${data.username}, ${data.password})`,
-      data,
-      (err, result) => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(result);
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        return reject(err);
       }
-    );
+      resolve(result);
+    });
   });
-};
-
-const update = (table, data) => {
-  return new Promise((resolve, reject) => {
-    connection.query(
-      `UPDATE ${table} SET ? WHERE id=?`,
-      [data, data.id],
-      (err, result) => {
-        if (err) return reject(err);
-        resolve(result);
-      }
-    );
-  });
-};
-
-const upsert = (table, data) => {
-  if (data && data.id) {
-    return update(table, data);
-  } else {
-    return insert(table, data);
-  }
 };
 
 const remove = (table, id) => {
