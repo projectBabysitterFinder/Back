@@ -1,3 +1,5 @@
+const { babysitter } = require('../store/db');
+
 require('dotenv').config();
 
 const config = {
@@ -5,10 +7,10 @@ const config = {
 	port: process.env.PORT,
 
 	dbUser: process.env.DB_USER || root,
-	dbPassword: process.env.DB_PASSWORD || hd,
+	dbPassword: process.env.DB_PASSWORD || hdrFKDSDNr,
 	dbHost: process.env.DB_HOST || localhost,
-	dbPort: process.env.DB_PORT || 3000,
-	dbName: process.env.DB_NAME || gasolineras,
+	dbPort: process.env.DB_PORT || 3306,
+	dbName: process.env.DB_NAME || babysitterFinder,
 
 	sentryDns: process.env.SENTRY_DNS,
 	sentryId: process.env.SENTRY_ID,

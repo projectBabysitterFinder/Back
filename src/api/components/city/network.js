@@ -15,8 +15,8 @@ const list = (req, res, next) => {
 const get = (req, res, next) => {
 	controller
 		.get(req.params.id)
-		.then((babysitter) => {
-			response.success(req, res, babysitter, 200);
+		.then((city) => {
+			response.success(req, res, city, 200);
 		})
 		.catch(next);
 };
@@ -25,8 +25,8 @@ const get = (req, res, next) => {
 const insert = (req, res, next) => {
   controller
     .insert(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201);
+    .then((city) => {
+      response.success(req, res, city, 201);
     })
     .catch(next);
 };
@@ -34,8 +34,8 @@ const insert = (req, res, next) => {
 const update = (req, res, next) => {
   controller
     .update(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201);
+    .then((city) => {
+      response.success(req, res, city, 201);
     })
     .catch(next);
 };
@@ -43,8 +43,8 @@ const update = (req, res, next) => {
 const remove = (req, res, next) => {
 	controller
 		.remove(req.params.id)
-		.then((babysitter) => {
-			response.success(req, res, babysitter, 201);
+		.then((city) => {
+			response.success(req, res, city, 201);
 		})
 		.catch(next);
 };

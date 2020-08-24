@@ -54,16 +54,29 @@ const get = (table, id) => {
   });
 };
 
-const upsert = (table, data, query) => {
+function insert(table, data) {
   return new Promise((resolve, reject) => {
-    connection.query(query, data, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
+    connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
+      if (err) return reject(err);
       resolve(result);
     });
   });
-};
+}
+
+function update(table, data) {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `UPDATE ${table} SET ? WHERE id=?`,
+      [data, data.id],
+      (err, result) => {
+        if (err) return reject(err);
+        resolve(result);
+      }
+    );
+    console.log('query=>',`UPDATE ${table} SET ? WHERE id=?`);
+  });
+}
+
 
 const remove = (table, id) => {
   return new Promise((resolve, reject) => {
@@ -88,7 +101,8 @@ const query = (table, query) => {
 module.exports = {
   list,
   get,
-  upsert,
+  insert,
+  update,
   remove,
   query,
 };

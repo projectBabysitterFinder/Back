@@ -21,9 +21,18 @@ const get = (req, res, next) => {
     .catch(next);
 };
 
-const upsert = (req, res, next) => {
+const insert = (req, res, next) => {
   controller
-    .upsert(req.body)
+    .insert(req.body)
+    .then((user) => {
+      response.success(req, res, user, 201);
+    })
+    .catch(next);
+};
+
+const update = (req, res, next) => {
+  controller
+    .update(req.body)
     .then((user) => {
       response.success(req, res, user, 201);
     })
@@ -41,8 +50,8 @@ const remove = (req, res, next) => {
 
 router.get('/', list);
 router.get('/:id', get);
-router.post('/', upsert);
-router.put('/', upsert);
+router.post('/', insert);
+router.put('/', update);
 router.delete('/:id', remove);
 
 module.exports = router;

@@ -15,7 +15,7 @@ module.exports = (injectedStore) => {
     return store.get(TABLA,  id);
   };
 
-  const upsert = async (body) => {
+  const insert = async (body) => {
     const user = {
       name: body.name,
       username: body.username,
@@ -25,16 +25,23 @@ module.exports = (injectedStore) => {
       score: body.score,
     };
 
-    if (!body.status_admin) {
-      user.status_admin = 0;
-    }
-
-    if (!body.score) {
-      user.code = 0;
-    }
-
-    return store.upsert(TABLA, user, query);
+    return store.insert(TABLA, user);
   };
+
+  const update = async (body) => {
+    const user = {
+      id: body.id,
+      name: body.name,
+      username: body.username,
+      phone: body.phone,
+      email: body.email,
+      status_admin: body.status_admin,
+      score: body.score,
+    };
+    return store.update(TABLA, user);
+  };
+
+
 
   const remove = async (id) => {
     return await store.remove(TABLA, id);
@@ -43,7 +50,8 @@ module.exports = (injectedStore) => {
   return {
     list,
     get,
-    upsert,
+    insert,
+    update,
     remove,
   };
 };

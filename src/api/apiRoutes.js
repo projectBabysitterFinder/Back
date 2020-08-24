@@ -13,5 +13,6 @@ const message = [
     babysitter: 'http://localhost:3000/api/babysitter',
     user: 'http://localhost:3000/api/user',
     services: 'http://localhost:3000/api/services',
+    city: 'http://localhost:3000/api/city',
   },
 ];

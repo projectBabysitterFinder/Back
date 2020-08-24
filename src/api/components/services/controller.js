@@ -1,6 +1,4 @@
-// const auth = require('../auth');
-// const { nanoid } = require('nanoid');
-const TABLA = 'service';
+const TABLA = 'services';
 
 module.exports = (injectedStore) => {
 	let store = injectedStore;
@@ -17,33 +15,33 @@ module.exports = (injectedStore) => {
 		return store.get(TABLA, id);
 	};
 
-	// const upsert = async (body) => {
-	// 	const user = {
-	// 		id: body.id,
-	// 		name: body.name,
-	// 		username: body.username,
-	// 		email: body.email,
-	// 		phone: body.phone,
-	// 		create: body.create,
-	// 		status: body.status,
-	// 	};
+  const insert = async (body) => {
+    const services = {
+      name: body.name,
+      username: body.username,
+      phone: body.phone,
+      email: body.email,
+      status_admin: body.status_admin,
+      score: body.score,
+    };
 
-	// 	if (body.id) {
-	// 		user.id = body.id;
-	// 	} else {
-	// 		user.id = nanoid();
-	// 	}
+    return store.insert(TABLA, services);
+  };
 
-	// 	if (body.password || body.username) {
-	// 		await auth.upsert({
-	// 			id: user.id,
-	// 			username: user.username,
-	// 			password: body.password,
-	// 		});
-	// 	}
+  const update = async (body) => {
+    const services = {
+      id: body.id,
+      name: body.name,
+      username: body.username,
+      phone: body.phone,
+      email: body.email,
+      status_admin: body.status_admin,
+      score: body.score,
+    };
+    return store.update(TABLA, services);
+  };
 
-	// 	return store.upsert(TABLA, user);
-	// };
+
 
 	const remove = async (id) => {
 		return await store.remove(TABLA, id);
@@ -52,7 +50,8 @@ module.exports = (injectedStore) => {
 	return {
 		list,
 		get,
-		// upsert,
+		update,
+		insert,
 		remove,
 	};
 };

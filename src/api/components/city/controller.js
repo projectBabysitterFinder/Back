@@ -1,4 +1,4 @@
-const TABLA = 'babysitter';
+const TABLA = 'city';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -16,29 +16,23 @@ module.exports = (injectedStore) => {
   };
 
   const insert = async (body) => {
-    const babysitter = {
+    const city = {
       id: body.id,
-      name: body.name,
-      username: body.username,
-      email: body.email,
-      phone: body.phone,
-      age: body.age,
-      status_admin: body.status_admin,
+      country: body.country,
+      state: body.state,
+      city: body.city,
     };
-    return store.insert(TABLA, babysitter);
+    return store.insert(TABLA, city);
   };
 
   const update = async (body) => {
-    const user = {
+    const city = {
       id: body.id,
-      name: body.name,
-      username: body.username,
-      email: body.email,
-      phone: body.phone,
-      age: body.age,
-      status_admin: body.status_admin,
+      country: body.country,
+      state: body.state,
+      city: body.city,
     };
-    return store.update(TABLA, user);
+    return store.update(TABLA, city);
   };
 
   const remove = async (id) => {
