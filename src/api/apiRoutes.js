@@ -14,5 +14,7 @@ const message = [
     user: 'http://localhost:3000/api/user',
     services: 'http://localhost:3000/api/services',
     city: 'http://localhost:3000/api/city',
+    skill: 'http://localhost:3000/api/skill',
+    experience: 'http://localhost:3000/api/experience',
   },
 ];

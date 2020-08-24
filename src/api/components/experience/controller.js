@@ -1,4 +1,4 @@
-const TABLA = 'services';
+const TABLA = 'experience';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -12,30 +12,34 @@ module.exports = (injectedStore) => {
   };
 
   const get = (id) => {
-    return store.get(TABLA, id);
+    return store.get(TABLA,  id);
   };
 
   const insert = async (body) => {
-    const services = {
-      recommendation: body.recommendation,
-      user_id: body.user_id,
+    const experience = {
+      company: body.company,
+      start: body.start,
+      end: body.end,
+      task: body.task,
       babysitter_id: body.babysitter_id,
-      city_id: body.city_id,
     };
 
-    return store.insert(TABLA, services);
+    return store.insert(TABLA, experience);
   };
 
   const update = async (body) => {
-    const services = {
+    const experience = {
       id: body.id,
-			recommendation: body.recommendation,
-      user_id: body.user_id,
+      company: body.company,
+      start: body.start,
+      end: body.end,
+      task: body.task,
       babysitter_id: body.babysitter_id,
-      city_id: body.city_id,
     };
-    return store.update(TABLA, services);
+    return store.update(TABLA, experience);
   };
+
+
 
   const remove = async (id) => {
     return await store.remove(TABLA, id);
@@ -44,8 +48,8 @@ module.exports = (injectedStore) => {
   return {
     list,
     get,
-    update,
     insert,
+    update,
     remove,
   };
 };

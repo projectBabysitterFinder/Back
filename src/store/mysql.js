@@ -73,7 +73,6 @@ function update(table, data) {
         resolve(result);
       }
     );
-    console.log('query=>',`UPDATE ${table} SET ? WHERE id=?`);
   });
 }
 
