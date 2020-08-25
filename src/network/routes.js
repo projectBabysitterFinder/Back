@@ -5,6 +5,8 @@ const city = require('../api/components/city/network');
 const skill = require('../api/components/skill/network');
 const experience = require('../api/components/experience/network');
 const location_user = require('../api/components/location_user/network');
+const children = require('../api/components/children/network');
+const cost = require('../api/components/cost/network');
 const location_babysitter = require('../api/components/location_babysitter/network');
 const apiRoute = require('../api/apiRoutes');
 
@@ -18,6 +20,8 @@ const routes = (server) => {
   server.use('/api/experience', experience);
   server.use('/api/location_user', location_user);
   server.use('/api/location_babysitter', location_babysitter);
+  server.use('/api/children', children);
+  server.use('/api/cost', cost);
 };
 
 module.exports = routes;

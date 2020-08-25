@@ -24,7 +24,13 @@ const message = [
         location: 'http://localhost:3000/api/location_user',
       },
     ],
-    services: 'http://localhost:3000/api/services',
-    city: 'http://localhost:3000/api/city',
+    services: [
+      {
+        services: 'http://localhost:3000/api/services',
+        city: 'http://localhost:3000/api/city',
+        children: 'http://localhost:3000/api/children',
+        cost: 'http://localhost:3000/api/cost',
+      },
+    ],
   },
 ];
