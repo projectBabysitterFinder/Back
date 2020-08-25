@@ -25,8 +25,8 @@ const get = (req, res, next) => {
 const insert = (req, res, next) => {
   controller
     .insert(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201);
+    .then((babysitter) => {
+      response.success(req, res, babysitter, 201);
     })
     .catch(next);
 };
@@ -34,8 +34,8 @@ const insert = (req, res, next) => {
 const update = (req, res, next) => {
   controller
     .update(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201);
+    .then((babysitter) => {
+      response.success(req, res, babysitter, 201);
     })
     .catch(next);
 };
