@@ -16,6 +16,9 @@ const message = [
         location: 'http://localhost:3000/api/location_babysitter',
         skill: 'http://localhost:3000/api/skill',
         experience: 'http://localhost:3000/api/experience',
+        join_personal_info_location: 'http://localhost:3000/api/allDataBabysitter',
+        join_personal_info_skill: 'http://localhost:3000/api/babysitterSkill',
+        join_personal_info_experience: 'http://localhost:3000/api/babysitterExperience',
       },
     ],
     user: [
