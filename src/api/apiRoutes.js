@@ -22,6 +22,7 @@ const message = [
       {
         personal_info: 'http://localhost:3000/api/user',
         location: 'http://localhost:3000/api/location_user',
+        join: 'http://localhost:3000/api/allDataUser',
       },
     ],
     services: [

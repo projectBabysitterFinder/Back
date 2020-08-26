@@ -8,6 +8,7 @@ const location_user = require('../api/components/location_user/network');
 const children = require('../api/components/children/network');
 const cost = require('../api/components/cost/network');
 const location_babysitter = require('../api/components/location_babysitter/network');
+const allDataUser = require('../api/components/allDataUser/network');
 const apiRoute = require('../api/apiRoutes');
 
 const routes = (server) => {
@@ -22,6 +23,7 @@ const routes = (server) => {
   server.use('/api/location_babysitter', location_babysitter);
   server.use('/api/children', children);
   server.use('/api/cost', cost);
+  server.use('/api/allDataUser', allDataUser);
 };
 
 module.exports = routes;

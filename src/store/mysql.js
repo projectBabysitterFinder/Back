@@ -76,7 +76,6 @@ function update(table, data) {
   });
 }
 
-
 const remove = (table, id) => {
   return new Promise((resolve, reject) => {
     connection.query(`DELETE FROM ${table} WHERE id = ${id}`, (err, result) => {
@@ -97,6 +96,36 @@ const query = (table, query) => {
   });
 };
 
+const join = (data) => {
+  const q = `SELECT * FROM ${data.tableOne}
+  INNER JOIN ${data.tableTwo} ON
+  ${data.tableOne}.${data.idOne} = ${data.tableTwo}.${data.idTwo}`;
+  return new Promise((resolve, reject) => {
+    connection.query(q, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
+const joinId = (data, id) => {
+  const query = `SELECT * FROM ${data.tableOne}
+  INNER JOIN ${data.tableTwo} ON
+  ${data.tableOne}.${data.idOne} = ${data.tableTwo}.${data.idTwo}
+  WHERE ${data.tableOne}.${data.idOne} = ${id}
+  `;
+  return new Promise((resolve, reject) => {
+    connection.query(query, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(result);
+    });
+  });
+};
+
 module.exports = {
   list,
   get,
@@ -104,4 +133,6 @@ module.exports = {
   update,
   remove,
   query,
+  join,
+  joinId,
 };
