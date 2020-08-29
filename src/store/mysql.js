@@ -45,6 +45,18 @@ const list = (table) => {
   });
 };
 
+const listRol = (table, rol) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `SELECT * FROM ${table} WHERE ID_ROL = ${rol}`,
+      (err, data) => {
+        if (err) return reject(err);
+        resolve(data);
+      }
+    );
+  });
+};
+
 const get = (table, id) => {
   return new Promise((resolve, reject) => {
     connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
@@ -67,7 +79,7 @@ function update(table, data) {
   return new Promise((resolve, reject) => {
     connection.query(
       `UPDATE ${table} SET ? WHERE id=?`,
-      [data, data.id],
+      [data, data.ID],
       (err, result) => {
         if (err) return reject(err);
         resolve(result);
@@ -96,36 +108,6 @@ const query = (table, query) => {
   });
 };
 
-const join = (data) => {
-  const q = `SELECT * FROM ${data.tableOne}
-  INNER JOIN ${data.tableTwo} ON
-  ${data.tableOne}.${data.idOne} = ${data.tableTwo}.${data.idTwo}`;
-  return new Promise((resolve, reject) => {
-    connection.query(q, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(result);
-    });
-  });
-};
-
-const joinId = (data, id) => {
-  const query = `SELECT * FROM ${data.tableOne}
-  INNER JOIN ${data.tableTwo} ON
-  ${data.tableOne}.${data.idOne} = ${data.tableTwo}.${data.idTwo}
-  WHERE ${data.tableOne}.${data.idOne} = ${id}
-  `;
-  return new Promise((resolve, reject) => {
-    connection.query(query, (err, result) => {
-      if (err) {
-        return reject(err);
-      }
-      resolve(result);
-    });
-  });
-};
-
 module.exports = {
   list,
   get,
@@ -133,6 +115,5 @@ module.exports = {
   update,
   remove,
   query,
-  join,
-  joinId,
+  listRol
 };

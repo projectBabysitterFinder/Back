@@ -12,6 +12,15 @@ const list = (req, res, next) => {
     .catch(next);
 };
 
+const listRol = (req, res, next) => {
+  controller
+    .listRol(req.params.ID_ROL)
+    .then((list) => {
+      response.success(req, res, list, 200);
+    })
+    .catch(next);
+};
+
 const get = (req, res, next) => {
   controller
     .get(req.params.id)
@@ -49,7 +58,8 @@ const remove = (req, res, next) => {
 };
 
 router.get('/', list);
-router.get('/:id', get);
+router.get('/:ID_ROL', listRol);
+router.get('/user/:id', get);
 router.post('/', insert);
 router.put('/', update);
 router.delete('/:id', remove);
