@@ -1,4 +1,5 @@
 const TABLA = 'USUARIOS';
+const TABLAMETA = 'META_USUARIOS';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -15,7 +16,7 @@ module.exports = (injectedStore) => {
     return store.listRol(TABLA, rol);
   };
   const listMetaData = (id) => {
-    return store.listMetaData('META_USUARIOS', id);
+    return store.listMetaData(TABLAMETA, id);
   };
 
   const get = (id) => {
