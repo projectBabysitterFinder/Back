@@ -16,7 +16,18 @@ const listRol = (req, res, next) => {
   controller
     .listRol(req.params.ID_ROL)
     .then((list) => {
-      response.success(req, res, list, 200);
+      if (req.params.ID_ROL==2) {
+        for (let x = 0; x < list.length; x++) {
+          controller.listMetaData(list[x].ID).then((data) => {
+            list[x].META_USUARIO=data;
+            response.success(req, res, list, 200);
+          }).catch(next);
+          
+        }
+      }else{
+        response.success(req, res, list, 200);
+      }
+      
     })
     .catch(next);
 };

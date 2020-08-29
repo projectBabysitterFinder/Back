@@ -12,16 +12,10 @@ module.exports = (injectedStore) => {
   };
 
   const listRol = (rol) => {
-    let usuarios=store.listRol(TABLA, rol);
-    if (rol==2) {
-      for (let index = 0; index < usuarios.length; index++) {
-        let element = usuarios[index];
-        let metadata= store.listMetaData('META_USUARIOS',element.id);
-        element.META_USUARIO=metadata;
-        usuarios[index]=element;
-      }
-    }
-    return usuarios;
+    return store.listRol(TABLA, rol);
+  };
+  const listMetaData = (id) => {
+    return store.listMetaData('META_USUARIOS', id);
   };
 
   const get = (id) => {
@@ -74,6 +68,7 @@ module.exports = (injectedStore) => {
     insert,
     update,
     remove,
-    listRol
+    listRol,
+    listMetaData
   };
 };

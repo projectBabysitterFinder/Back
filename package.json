@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "DEBUG=app:* nodemon ./src/server",
-    "start": "NODE_ENV=production node index",
-    "debug": "DEBUG=express:*,app:* npm run dev"
+    "dev": "nodemon ./src/server"
+   
   },
   "keywords": [],
   "author": "Hugo Andrés Diáz Bernal <hugoandresdiazbernal@gmail.com>",
