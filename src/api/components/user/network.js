@@ -29,12 +29,10 @@ const listRol = (req, res, next) => {
             }
             response.success(req, res, list, 200);
           }).catch(next);
-          
         }
       }else{
         response.success(req, res, list, 200);
       }
-      
     })
     .catch(next);
 };
