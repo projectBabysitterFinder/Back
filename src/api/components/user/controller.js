@@ -12,7 +12,16 @@ module.exports = (injectedStore) => {
   };
 
   const listRol = (rol) => {
-    return store.listRol(TABLA, rol);
+    let usuarios=store.listRol(TABLA, rol);
+    if (rol==2) {
+      for (let index = 0; index < usuarios.length; index++) {
+        let element = usuarios[index];
+        let metadata= store.listMetaData('META_USUARIOS',element.id);
+        element.META_USUARIO=metadata;
+        usuarios[index]=element;
+      }
+    }
+    return usuarios;
   };
 
   const get = (id) => {

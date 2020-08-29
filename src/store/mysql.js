@@ -57,6 +57,18 @@ const listRol = (table, rol) => {
   });
 };
 
+const listMetaData = (table, id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `SELECT * FROM ${table} WHERE ID_USUARIO = ${id}`,
+      (err, data) => {
+        if (err) return reject(err);
+        resolve(data);
+      }
+    );
+  });
+};
+
 const get = (table, id) => {
   return new Promise((resolve, reject) => {
     connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
@@ -115,5 +127,6 @@ module.exports = {
   update,
   remove,
   query,
-  listRol
+  listRol,
+  listMetaData
 };
