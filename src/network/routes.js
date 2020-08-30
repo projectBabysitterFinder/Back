@@ -1,5 +1,5 @@
 const user = require('../api/components/user/network');
-const reviews = require('../api/components/resenas/network');
+const reviews = require('../api/components/reviews/network');
 const apiRoute = require('../api/apiRoutes');
 const services = require('../api/components/services/network');
 

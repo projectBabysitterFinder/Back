@@ -1,4 +1,4 @@
-const TABLA = 'RESEÑAS';
+const TABLE = 'REVIEWS';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -8,36 +8,36 @@ module.exports = (injectedStore) => {
   }
 
   const list = () => {
-    return store.list(TABLA);
+    return store.list(TABLE);
   };
 
   const listRol = (rol) => {
-    return store.listRol(TABLA, rol);
+    return store.listRol(TABLE, rol);
   };
 
 
   const get = (id) => {
-    return store.get(TABLA, id);
+    return store.get(TABLE, id);
   };
 
   const getByIdNana = (id) => {
-    return store.getByCustomId(TABLA, id,'ID_USUARIO_NANA');
+    return store.getByCustomId(TABLE, id, 'ID_USER_BABYSITTER');
   };
 
   const insert = async (body) => {
     const review = {
-      ID_USUARIO_CLIENTE: body.ID_USUARIO_CLIENTE,
-      ID_USUARIO_NANA: body.ID_USUARIO_NANA,
+      ID_USER_CLIENT: body.ID_USER_CLIENT,
+      ID_USER_BABYSITTER: body.ID_USER_BABYSITTER,
       DES_OPINION: body.DES_OPINION,
-      NUM_ESTRELLAS: body.NUM_ESTRELLAS,
+      NUM_STARS: body.NUM_STARS,
     };
-      return store.insert(TABLA, review);
+    return store.insert(TABLE, review);
   };
 
-  
+
 
   const remove = async (id) => {
-    return await store.remove(TABLA, id);
+    return await store.remove(TABLE, id);
   };
 
   return {
