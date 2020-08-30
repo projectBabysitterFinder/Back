@@ -60,7 +60,8 @@ const listRol = (table, rol) => {
 const listMetaData = (table, id) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM ${table} WHERE ID_USUARIO = ${id}`,
+      `SELECT USUARIOS.*,META_USUARIOS.*
+      FROM USUARIOS,META_USUARIOS where USUARIOS.ID_ROL=${id} and META_USUARIOS.ID_usuario=USUARIOS.ID;`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -78,23 +79,42 @@ const get = (table, id) => {
   });
 };
 
-function insert(table, data) {
+function insert(table, data, metadata) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
       if (err) return reject(err);
-      resolve(result);
+      if (metadata!=undefined) {
+        let idusuario=result.insertId;
+        metadata.ID_USUARIO=idusuario;
+        connection.query(`INSERT INTO META_USUARIOS SET ?`,metadata,(err,res) => {
+          if (err) return reject(err);
+          resolve(res);
+        })
+      } else {
+        resolve(result);
+      }
+      
     });
   });
 }
 
-function update(table, data) {
+function update(table, data, metadata) {
   return new Promise((resolve, reject) => {
     connection.query(
       `UPDATE ${table} SET ? WHERE id=?`,
       [data, data.ID],
       (err, result) => {
         if (err) return reject(err);
-        resolve(result);
+        if (metadata!=undefined) {
+          let idusuario=data.ID;
+        connection.query(`UPDATE META_USUARIOS SET ? WHERE ID_USUARIO=${idusuario}`,metadata,(err,res) => {
+          if (err) return reject(err);
+          resolve(res);
+        })
+        } else {
+          resolve(result);
+        }
+        
       }
     );
   });

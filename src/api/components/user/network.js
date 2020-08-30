@@ -13,28 +13,31 @@ const list = (req, res, next) => {
 };
 
 const listRol = (req, res, next) => {
-  controller
+  if (req.params.ID_ROL==2) {
+    controller
+    .listMetaData(req.params.ID_ROL)
+    .then((list) => {
+      let listFinal =list;
+      for (let x = 0; x < listFinal.length; x++) {
+        listFinal[x].DES_DATA_ESTUDIOS=JSON.parse(listFinal[x].DES_DATA_ESTUDIOS);
+        listFinal[x].DES_DATA_ESPECIALIDADES=JSON.parse(listFinal[x].DES_DATA_ESPECIALIDADES);
+        listFinal[x].DES_DATA_HABILIDADES=JSON.parse(listFinal[x].DES_DATA_HABILIDADES);
+        listFinal[x].DES_DATA_EXPERIENCIA=JSON.parse(listFinal[x].DES_DATA_EXPERIENCIA);
+        listFinal[x].DES_DATA_TIEMPO_SERVICIOS=JSON.parse(listFinal[x].DES_DATA_TIEMPO_SERVICIOS);
+        listFinal[x].DES_DATA_DISPONIBILIDAD=JSON.parse(listFinal[x].DES_DATA_DISPONIBILIDAD);
+      }
+      response.success(req, res, listFinal, 200);
+  })
+  .catch(next);
+
+  } else {
+    controller
     .listRol(req.params.ID_ROL)
     .then((list) => {
-      if (req.params.ID_ROL==2) {
-        for (let x = 0; x < list.length; x++) {
-          controller.listMetaData(list[x].ID).then((data) => {
-            list[x].META_USUARIO=data;
-            if (list[x].META_USUARIO.length>0) {
-              list[x].META_USUARIO[0].DES_DATA_ESTUDIOS=JSON.parse(list[x].META_USUARIO[0].DES_DATA_ESTUDIOS);
-              list[x].META_USUARIO[0].DES_DATA_ESPECIALIDADES=JSON.parse(list[x].META_USUARIO[0].DES_DATA_ESPECIALIDADES);
-              list[x].META_USUARIO[0].DES_DATA_HABILIDADES=JSON.parse(list[x].META_USUARIO[0].DES_DATA_HABILIDADES);
-              list[x].META_USUARIO[0].DES_DATA_EXPERIENCIA=JSON.parse(list[x].META_USUARIO[0].DES_DATA_EXPERIENCIA);
-              list[x].META_USUARIO[0].DES_DATA_DISPONIBILIDAD=JSON.parse(list[x].META_USUARIO[0].DES_DATA_DISPONIBILIDAD);
-            }
-            response.success(req, res, list, 200);
-          }).catch(next);
-        }
-      }else{
         response.success(req, res, list, 200);
-      }
     })
     .catch(next);
+  }
 };
 
 const get = (req, res, next) => {

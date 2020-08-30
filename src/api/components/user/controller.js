@@ -37,8 +37,21 @@ module.exports = (injectedStore) => {
       DES_CORREO: body.DES_CORREO,
       NUM_STATUS: body.NUM_STATUS,
     };
+    if (body.ID_ROL==2) {
+      const userMeta = {};
+      userMeta.DES_DATA_ESTUDIOS= body.DES_DATA_ESTUDIOS;
+      userMeta.DES_DATA_ESPECIALIDADES= body.DES_DATA_ESPECIALIDADES;
+      userMeta.DES_DATA_HABILIDADES= body.DES_DATA_HABILIDADES;
+      userMeta.DES_DATA_EXPERIENCIA= body.DES_DATA_EXPERIENCIA;
+      userMeta.DES_DATA_DISPONIBILIDAD= body.DES_DATA_DISPONIBILIDAD;
+      userMeta.DES_DATA_TIEMPO_SERVICIOS= body.DES_DATA_TIEMPO_SERVICIOS;
+      userMeta.NUM_TARIFA_HORA= body.NUM_TARIFA_HORA;
+      return store.insert(TABLA, user,userMeta);
+    }else{
+      return store.insert(TABLA, user);
+    }
 
-    return store.insert(TABLA, user);
+    
   };
 
   const update = async (body) => {
@@ -56,7 +69,20 @@ module.exports = (injectedStore) => {
       DES_CORREO: body.DES_CORREO,
       NUM_STATUS: body.NUM_STATUS,
     };
-    return store.update(TABLA, user);
+    if (body.ID_ROL==2) {
+      const userMeta = {};
+      userMeta.DES_DATA_ESTUDIOS= body.DES_DATA_ESTUDIOS;
+      userMeta.DES_DATA_ESPECIALIDADES= body.DES_DATA_ESPECIALIDADES;
+      userMeta.DES_DATA_HABILIDADES= body.DES_DATA_HABILIDADES;
+      userMeta.DES_DATA_EXPERIENCIA= body.DES_DATA_EXPERIENCIA;
+      userMeta.DES_DATA_DISPONIBILIDAD= body.DES_DATA_DISPONIBILIDAD;
+      userMeta.DES_DATA_TIEMPO_SERVICIOS= body.DES_DATA_TIEMPO_SERVICIOS;
+      userMeta.NUM_TARIFA_HORA= body.NUM_TARIFA_HORA;
+      return store.update(TABLA, user,userMeta);
+    }else{
+      return store.update(TABLA, user);
+    }
+    
   };
 
   const remove = async (id) => {
