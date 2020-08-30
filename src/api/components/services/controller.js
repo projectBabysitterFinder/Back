@@ -1,4 +1,4 @@
-const TABLA = 'SERVICIOS';
+const TABLE = 'SERVICES';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -8,42 +8,42 @@ module.exports = (injectedStore) => {
   }
 
   const list = () => {
-    return store.list(TABLA);
+    return store.list(TABLE);
   };
 
   const get = (id) => {
-    return store.get(TABLA, id);
+    return store.get(TABLE, id);
   };
 
   const insert = async (body) => {
     const services = {
-      ID_USUARIO_CLIENTE: body.ID_USUARIO_CLIENTE,
-      ID_USUARIO_NANA: body.ID_USUARIO_NANA,
-      DES_DOMICILIO: body.DES_DOMICILIO,
-      DES_DOMICILIO_LATLONG: body.DES_DOMICILIO_LATLONG,
-      DES_RECOMENDACIONES: body.DES_RECOMENDACIONES,
-      DES_DATA_INFANTES: body.DES_DATA_INFANTES,
-      DES_DATA_HORARIO: body.DES_DATA_HORARIO,
-      NUM_COSTO_TOTAL: body.NUM_COSTO_TOTAL,
+      ID_USER_CLIENT: body.ID_USER_CLIENT,
+      ID_USER_BABYSITTER: body.ID_USER_BABYSITTER,
+      DES_ADDRESS: body.DES_ADDRESS,
+      DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
+      DES_RECOMMENDATIONS: body.DES_RECOMMENDATIONS,
+      DES_DATA_BOYS: body.DES_DATA_BOYS,
+      DES_DATA_HOURS: body.DES_DATA_HOURS,
+      NUM_TOTAL_COST: body.NUM_TOTAL_COST,
       NUM_STATUS: body.NUM_STATUS,
     }
-    return store.insert(TABLA, services);
+    return store.insert(TABLE, services);
   };
 
   const update = async (body) => {
     const services = {
       ID: body.ID,
-      ID_USUARIO_CLIENTE: body.ID_USUARIO_CLIENTE,
-      ID_USUARIO_NANA: body.ID_USUARIO_NANA,
-      DES_DOMICILIO: body.DES_DOMICILIO,
-      DES_DOMICILIO_LATLONG: body.DES_DOMICILIO_LATLONG,
-      DES_RECOMENDACIONES: body.DES_RECOMENDACIONES,
-      DES_DATA_INFANTES: body.DES_DATA_INFANTES,
-      DES_DATA_HORARIO: body.DES_DATA_HORARIO,
-      NUM_COSTO_TOTAL: body.NUM_COSTO_TOTAL,
+      ID_USER_CLIENT: body.ID_USER_CLIENT,
+      ID_USER_BABYSITTER: body.ID_USER_BABYSITTER,
+      DES_ADDRESS: body.DES_ADDRESS,
+      DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
+      DES_RECOMMENDATIONS: body.DES_RECOMMENDATIONS,
+      DES_DATA_BOYS: body.DES_DATA_BOYS,
+      DES_DATA_HOURS: body.DES_DATA_HOURS,
+      NUM_TOTAL_COST: body.NUM_TOTAL_COST,
       NUM_STATUS: body.NUM_STATUS,
     }
-    return store.update(TABLA, services);
+    return store.update(TABLE, services);
   };
 
 
