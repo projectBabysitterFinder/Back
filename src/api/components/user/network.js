@@ -15,7 +15,7 @@ const list = (req, res, next) => {
 const listRol = (req, res, next) => {
   if (req.params.ID_ROL==2) {
     controller
-    .listMetaData(req.params.ID_ROL)
+    .listMetaData()
     .then((list) => {
       let listFinal =list;
       for (let x = 0; x < listFinal.length; x++) {

@@ -57,11 +57,13 @@ const listRol = (table, rol) => {
   });
 };
 
-const listMetaData = (table, id) => {
+const listJoinByForeinKey = (table1,table2, columTable2) => {
+  
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT USUARIOS.*,META_USUARIOS.*
-      FROM USUARIOS,META_USUARIOS where USUARIOS.ID_ROL=${id} and META_USUARIOS.ID_usuario=USUARIOS.ID;`,
+      `SELECT ${table1}.*,${table2}.*
+      FROM ${table1}
+      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2};`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -95,7 +97,7 @@ function insert(table, data, metadata) {
       if (metadata!=undefined) {
         let idusuario=result.insertId;
         metadata.ID_USUARIO=idusuario;
-        connection.query(`INSERT INTO META_USUARIOS SET ?`,metadata,(err,res) => {
+        connection.query(`INSERT INTO USER_META SET ?`,metadata,(err,res) => {
           if (err) return reject(err);
           resolve(res);
         })
@@ -116,7 +118,7 @@ function update(table, data, metadata) {
         if (err) return reject(err);
         if (metadata!=undefined) {
           let idusuario=data.ID;
-        connection.query(`UPDATE META_USUARIOS SET ? WHERE ID_USUARIO=${idusuario}`,metadata,(err,res) => {
+        connection.query(`UPDATE USER_META SET ? WHERE ID_USER=${idusuario}`,metadata,(err,res) => {
           if (err) return reject(err);
           resolve(res);
         })
@@ -157,6 +159,6 @@ module.exports = {
   remove,
   query,
   listRol,
-  listMetaData,
+  listJoinByForeinKey,
   getByCustomId
 };
