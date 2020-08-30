@@ -11,7 +11,7 @@ module.exports = router;
 const message = [
   {
     user: 'http://localhost:3000/api/users',
-    metadata: 'http://localhost:3000/api/metadata',
+    reviews: 'http://localhost:3000/api/reviews',
     services: 'http://localhost:3000/api/services',
   },
 ];

@@ -39,19 +39,10 @@ const update = (req, res, next) => {
     .catch(next);
 };
 
-const remove = (req, res, next) => {
-  controller
-    .remove(req.params.id)
-    .then((services) => {
-      response.success(req, res, services, 201);
-    })
-    .catch(next);
-};
 
 router.get('/', list);
 router.get('/:id', get);
 router.post('/', insert);
 router.put('/', update);
-router.delete('/:id', remove);
 
 module.exports = router;

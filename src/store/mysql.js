@@ -79,6 +79,15 @@ const get = (table, id) => {
   });
 };
 
+const getByCustomId = (table, id,colum) => {
+  return new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM ${table} WHERE ${colum} = ${id}`, (err, data) => {
+      if (err) return reject(err);
+      resolve(data);
+    });
+  });
+};
+
 function insert(table, data, metadata) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
@@ -148,5 +157,6 @@ module.exports = {
   remove,
   query,
   listRol,
-  listMetaData
+  listMetaData,
+  getByCustomId
 };

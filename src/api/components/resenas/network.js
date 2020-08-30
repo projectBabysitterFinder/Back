@@ -12,9 +12,20 @@ const list = (req, res, next) => {
     .catch(next);
 };
 
+
+
 const get = (req, res, next) => {
   controller
     .get(req.params.id)
+    .then((user) => {
+      response.success(req, res, user, 200);
+    })
+    .catch(next);
+};
+
+const getByIdNana = (req, res, next) => {
+  controller
+    .getByIdNana(req.params.id)
     .then((user) => {
       response.success(req, res, user, 200);
     })
@@ -30,14 +41,7 @@ const insert = (req, res, next) => {
     .catch(next);
 };
 
-const update = (req, res, next) => {
-  controller
-    .update(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201);
-    })
-    .catch(next);
-};
+
 
 const remove = (req, res, next) => {
   controller
@@ -50,8 +54,8 @@ const remove = (req, res, next) => {
 
 router.get('/', list);
 router.get('/:id', get);
+router.get('/byNana/:id', getByIdNana);
 router.post('/', insert);
-router.put('/', update);
 router.delete('/:id', remove);
 
 module.exports = router;

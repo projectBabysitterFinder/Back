@@ -1,5 +1,6 @@
 const TABLA = 'USUARIOS';
 const TABLAMETA = 'META_USUARIOS';
+const bcrypt=require('bcrypt');
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -37,6 +38,7 @@ module.exports = (injectedStore) => {
       DES_CORREO: body.DES_CORREO,
       NUM_STATUS: body.NUM_STATUS,
     };
+    user.DES_PASSWORD=bcrypt.hashSync(user.DES_PASSWORD, 5);
     if (body.ID_ROL==2) {
       const userMeta = {};
       userMeta.DES_DATA_ESTUDIOS= body.DES_DATA_ESTUDIOS;

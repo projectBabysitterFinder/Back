@@ -1,4 +1,4 @@
-const TABLA = 'services';
+const TABLA = 'SERVICIOS';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -17,35 +17,40 @@ module.exports = (injectedStore) => {
 
   const insert = async (body) => {
     const services = {
-      recommendation: body.recommendation,
-      user_id: body.user_id,
-      babysitter_id: body.babysitter_id,
-      city_id: body.city_id,
-    };
-
+      ID_USUARIO_CLIENTE: body.ID_USUARIO_CLIENTE,
+      ID_USUARIO_NANA: body.ID_USUARIO_NANA,
+      DES_DOMICILIO: body.DES_DOMICILIO,
+      DES_DOMICILIO_LATLONG: body.DES_DOMICILIO_LATLONG,
+      DES_RECOMENDACIONES: body.DES_RECOMENDACIONES,
+      DES_DATA_INFANTES: body.DES_DATA_INFANTES,
+      DES_DATA_HORARIO: body.DES_DATA_HORARIO,
+      NUM_COSTO_TOTAL: body.NUM_COSTO_TOTAL,
+      NUM_STATUS: body.NUM_STATUS,
+    }
     return store.insert(TABLA, services);
   };
 
   const update = async (body) => {
     const services = {
-      id: body.id,
-			recommendation: body.recommendation,
-      user_id: body.user_id,
-      babysitter_id: body.babysitter_id,
-      city_id: body.city_id,
-    };
+      ID: body.ID,
+      ID_USUARIO_CLIENTE: body.ID_USUARIO_CLIENTE,
+      ID_USUARIO_NANA: body.ID_USUARIO_NANA,
+      DES_DOMICILIO: body.DES_DOMICILIO,
+      DES_DOMICILIO_LATLONG: body.DES_DOMICILIO_LATLONG,
+      DES_RECOMENDACIONES: body.DES_RECOMENDACIONES,
+      DES_DATA_INFANTES: body.DES_DATA_INFANTES,
+      DES_DATA_HORARIO: body.DES_DATA_HORARIO,
+      NUM_COSTO_TOTAL: body.NUM_COSTO_TOTAL,
+      NUM_STATUS: body.NUM_STATUS,
+    }
     return store.update(TABLA, services);
   };
 
-  const remove = async (id) => {
-    return await store.remove(TABLA, id);
-  };
 
   return {
     list,
     get,
     update,
     insert,
-    remove,
   };
 };
