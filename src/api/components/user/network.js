@@ -13,30 +13,30 @@ const list = (req, res, next) => {
 };
 
 const listRol = (req, res, next) => {
-  if (req.params.ID_ROL==2) {
+  if (req.params.ID_ROL == 2) {
     controller
-    .listMetaData()
-    .then((list) => {
-      let listFinal =list;
-      for (let x = 0; x < listFinal.length; x++) {
-        listFinal[x].DES_DATA_ESTUDIOS=JSON.parse(listFinal[x].DES_DATA_ESTUDIOS);
-        listFinal[x].DES_DATA_ESPECIALIDADES=JSON.parse(listFinal[x].DES_DATA_ESPECIALIDADES);
-        listFinal[x].DES_DATA_HABILIDADES=JSON.parse(listFinal[x].DES_DATA_HABILIDADES);
-        listFinal[x].DES_DATA_EXPERIENCIA=JSON.parse(listFinal[x].DES_DATA_EXPERIENCIA);
-        listFinal[x].DES_DATA_TIEMPO_SERVICIOS=JSON.parse(listFinal[x].DES_DATA_TIEMPO_SERVICIOS);
-        listFinal[x].DES_DATA_DISPONIBILIDAD=JSON.parse(listFinal[x].DES_DATA_DISPONIBILIDAD);
-      }
-      response.success(req, res, listFinal, 200);
-  })
-  .catch(next);
+      .listMetaData()
+      .then((list) => {
+        let listFinal = list;
+        for (let x = 0; x < listFinal.length; x++) {
+          listFinal[x].DES_DATA_STUDIES=JSON.parse(listFinal[x].DES_DATA_STUDIES);
+          listFinal[x].DES_DATA_SPECIALTIES=JSON.parse(listFinal[x].DES_DATA_SPECIALTIES);
+          listFinal[x].DES_DATA_ABILITIES=JSON.parse(listFinal[x].DES_DATA_ABILITIES);
+          listFinal[x].DES_DATA_EXPERIECE=JSON.parse(listFinal[x].DES_DATA_EXPERIECE);
+          listFinal[x].DES_DATA_AVAILABILITY=JSON.parse(listFinal[x].DES_DATA_AVAILABILITY);
+          listFinal[x].DES_DATA_SERVICE_TIME=JSON.parse(listFinal[x].DES_DATA_SERVICE_TIME);
+        }
+        response.success(req, res, listFinal, 200);
+      })
+      .catch(next);
 
   } else {
     controller
-    .listRol(req.params.ID_ROL)
-    .then((list) => {
+      .listRol(req.params.ID_ROL)
+      .then((list) => {
         response.success(req, res, list, 200);
-    })
-    .catch(next);
+      })
+      .catch(next);
   }
 };
 

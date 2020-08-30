@@ -1,6 +1,6 @@
 const TABLE = 'USERS';
 const METATABLE = 'USER_META';
-const FOREINKEYMETATABLE='ID_USUARIO';
+const FOREINKEYMETATABLE = 'ID_USER';
 const bcrypt = require('bcrypt');
 
 module.exports = (injectedStore) => {
@@ -18,7 +18,7 @@ module.exports = (injectedStore) => {
     return store.listRol(TABLE, rol);
   };
   const listMetaData = () => {
-    return store.listJoinByForeinKey(TABLE,METATABLE,FOREINKEYMETATABLE);
+    return store.listJoinByForeinKey(TABLE, METATABLE, FOREINKEYMETATABLE);
   };
 
   const get = (id) => {
@@ -42,13 +42,13 @@ module.exports = (injectedStore) => {
     user.DES_PASSWORD = bcrypt.hashSync(user.DES_PASSWORD, 5);
     if (body.ID_ROL == 2) {
       const userMeta = {};
-      userMeta.DES_DATA_ESTUDIOS = body.DES_DATA_ESTUDIOS;
-      userMeta.DES_DATA_ESPECIALIDADES = body.DES_DATA_ESPECIALIDADES;
-      userMeta.DES_DATA_HABILIDADES = body.DES_DATA_HABILIDADES;
-      userMeta.DES_DATA_EXPERIENCIA = body.DES_DATA_EXPERIENCIA;
-      userMeta.DES_DATA_DISPONIBILIDAD = body.DES_DATA_DISPONIBILIDAD;
-      userMeta.DES_DATA_TIEMPO_SERVICIOS = body.DES_DATA_TIEMPO_SERVICIOS;
-      userMeta.NUM_TARIFA_HORA = body.NUM_TARIFA_HORA;
+      userMeta.DES_DATA_STUDIES = body.DES_DATA_STUDIES;
+      userMeta.DES_DATA_SPECIALTIES = body.DES_DATA_SPECIALTIES;
+      userMeta.DES_DATA_ABILITIES = body.DES_DATA_ABILITIES;
+      userMeta.DES_DATA_EXPERIECE = body.DES_DATA_EXPERIECE;
+      userMeta.DES_DATA_AVAILABILITY = body.DES_DATA_AVAILABILITY;
+      userMeta.DES_DATA_SERVICE_TIME = body.DES_DATA_SERVICE_TIME;
+      userMeta.NUM_HOURLY_RATE = body.NUM_HOURLY_RATE;
       return store.insert(TABLE, user, userMeta);
     } else {
       return store.insert(TABLE, user);
@@ -74,13 +74,13 @@ module.exports = (injectedStore) => {
     };
     if (body.ID_ROL == 2) {
       const userMeta = {};
-      userMeta.DES_DATA_ESTUDIOS = body.DES_DATA_ESTUDIOS;
-      userMeta.DES_DATA_ESPECIALIDADES = body.DES_DATA_ESPECIALIDADES;
-      userMeta.DES_DATA_HABILIDADES = body.DES_DATA_HABILIDADES;
-      userMeta.DES_DATA_EXPERIENCIA = body.DES_DATA_EXPERIENCIA;
-      userMeta.DES_DATA_DISPONIBILIDAD = body.DES_DATA_DISPONIBILIDAD;
-      userMeta.DES_DATA_TIEMPO_SERVICIOS = body.DES_DATA_TIEMPO_SERVICIOS;
-      userMeta.NUM_TARIFA_HORA = body.NUM_TARIFA_HORA;
+      userMeta.DES_DATA_STUDIES = body.DES_DATA_STUDIES;
+      userMeta.DES_DATA_SPECIALTIES = body.DES_DATA_SPECIALTIES;
+      userMeta.DES_DATA_ABILITIES = body.DES_DATA_ABILITIES;
+      userMeta.DES_DATA_EXPERIECE = body.DES_DATA_EXPERIECE;
+      userMeta.DES_DATA_AVAILABILITY = body.DES_DATA_AVAILABILITY;
+      userMeta.DES_DATA_SERVICE_TIME = body.DES_DATA_SERVICE_TIME;
+      userMeta.NUM_HOURLY_RATE = body.NUM_HOURLY_RATE;
       return store.update(TABLE, user, userMeta);
     } else {
       return store.update(TABLE, user);
