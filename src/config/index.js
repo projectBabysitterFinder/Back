@@ -5,6 +5,7 @@ require('dotenv').config();
 const config = {
 	dev: process.env.NODE_ENV !== 'production',
 	port: process.env.PORT,
+	URL: process.env.URL || localhost,
 
 	dbUser: process.env.DB_USER || root,
 	dbPassword: process.env.DB_PASSWORD || hdrFKDSDNr,
