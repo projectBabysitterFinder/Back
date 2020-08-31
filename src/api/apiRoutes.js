@@ -1,6 +1,7 @@
 const express = require('express');
 const response = require('../network/response');
 const router = express.Router();
+require('dotenv').config();
 
 router.get('/', (req, res) => {
   response.success(req, res, message, 200);
@@ -10,9 +11,9 @@ module.exports = router;
 
 const message = [
   {
-    docs: 'http://localhost:3001/api-docs',
-    user: 'http://localhost:3001/api/users',
-    reviews: 'http://localhost:3001/api/reviews',
-    services: 'http://localhost:3001/api/services',
+    docs: `http://localhost:${process.env.PORT}/api-docs`,
+    user: `http://localhost:${process.env.PORT}/api/users`,
+    reviews: `http://localhost:${process.env.PORT}/api/reviews`,
+    services: `http://localhost:${process.env.PORT}/api/services`,
   },
 ];
