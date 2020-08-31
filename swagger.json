@@ -50,8 +50,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_ROL\":2,\"DES_FULNAME\":\"Carlo Anchelloty\",\"DATE_BIRTH\":\"1990-03-19 00-00-00\",\"DES_USER\":\"ksakdee\",\"DES_PASSWORK\":\"ertyuiodfghjknmghj5678+{-\",\"DES_ADDRESS\":\"calle la arboleda\",\"DES_ADDRESS_LATLONG\":20.01345678,\"NUM_PHONE\":\"20-123-345-2345\",\"DES_EMAIL\":\"platzi@platzi.com\"}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -62,8 +78,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -74,8 +95,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -94,8 +120,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"User Update\",\"body\":{\"ID\":1,\"ID_ROL\":2,\"DES_FULNAME\":\"Carlo Anchelloty\",\"DATE_BIRTH\":\"1990-03-19 00-00-00\",\"DES_USER\":\"ksakdee\",\"DES_PASSWORK\":\"ertyuiodfghjknmghj5678+{-\",\"DES_ADDRESS\":\"calle la arboleda\",\"DES_ADDRESS_LATLONG\":20.01345678,\"NUM_PHONE\":\"20-123-345-2345\",\"DES_EMAIL\":\"platzi@platzi.com\"}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "User Update",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -106,8 +148,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -118,8 +165,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":500,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -138,8 +190,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"User Created\",\"body\":{\"ID\":1,\"ID_ROL\":2,\"DES_FULNAME\":\"Carlo Anchelloty\",\"DATE_BIRTH\":\"1990-03-19 00-00-00\",\"DES_USER\":\"ksakdee\",\"DES_PASSWORK\":\"ertyuiodfghjknmghj5678+{-\",\"DES_ADDRESS\":\"calle la arboleda\",\"DES_ADDRESS_LATLONG\":20.01345678,\"NUM_PHONE\":\"20-123-345-2345\",\"DES_EMAIL\":\"platzi@platzi.com\"}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "User Created",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -150,8 +218,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -162,8 +235,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":500,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -198,8 +276,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"user\",\"body\":{\"ID\":1,\"ID_ROL\":2,\"DES_FULNAME\":\"Carlo Anchelloty\",\"DATE_BIRTH\":\"1990-03-19 00-00-00\",\"DES_USER\":\"ksakdee\",\"DES_PASSWORK\":\"ertyuiodfghjknmghj5678+{-\",\"DES_ADDRESS\":\"calle la arboleda\",\"DES_ADDRESS_LATLONG\":20.01345678,\"NUM_PHONE\":\"20-123-345-2345\",\"DES_EMAIL\":\"platzi@platzi.com\"}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -210,8 +304,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"NotFound recurse\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -222,8 +321,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":500,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -256,8 +360,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"user delete\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user delete",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -268,8 +377,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"NotFound recurse\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -280,8 +394,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":500,\"message\":\"Error in server\",\"body\":[]}"
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in server",
+                    "body": []
+                  }
                 }
               }
             }
@@ -315,8 +434,24 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"user\",\"body\":{\"ID\":1,\"ID_ROL\":2,\"DES_FULNAME\":\"Carlo Anchelloty\",\"DATE_BIRTH\":\"1990-03-19 00-00-00\",\"DES_USER\":\"ksakdee\",\"DES_PASSWORK\":\"ertyuiodfghjknmghj5678+{-\",\"DES_ADDRESS\":\"calle la arboleda\",\"DES_ADDRESS_LATLONG\":20.01345678,\"NUM_PHONE\":\"20-123-345-2345\",\"DES_EMAIL\":\"platzi@platzi.com\"}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -327,8 +462,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"NotFound recurse\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -339,8 +479,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":500,\"message\":\"Error in the query\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -361,8 +506,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -373,8 +530,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -385,8 +547,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -404,8 +571,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -416,8 +595,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -428,8 +612,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -464,8 +653,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -476,8 +677,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -488,8 +694,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -521,8 +732,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -533,8 +756,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -545,8 +773,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -580,8 +813,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -592,8 +837,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -604,8 +854,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -626,8 +881,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -638,8 +905,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -650,8 +922,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -669,8 +946,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -681,8 +970,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -693,8 +987,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -713,8 +1012,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -725,8 +1036,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -737,8 +1053,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -771,8 +1092,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":false,\"status\":200,\"message\":\"Successful request\",\"body\":{\"ID\":1,\"ID_USER_CLIENT\":2,\"ID_USER_BABYSITTER\":4,\"DES_OPINION\":\"curae mauris viverra diam vitae quam suspendisse\",\"NUM_STARTS\":4,\"NUM_STATUS\":2}}",
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -783,8 +1116,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Recurse Notfount\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
@@ -795,8 +1133,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "example": "{\"error\":true,\"status\":400,\"message\":\"Error Server\",\"body\":[]}",
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
                   "x-content-type": "application/json"
                 }
               }
