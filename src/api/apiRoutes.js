@@ -10,8 +10,9 @@ module.exports = router;
 
 const message = [
   {
-    user: 'http://localhost:3000/api/users',
-    reviews: 'http://localhost:3000/api/reviews',
-    services: 'http://localhost:3000/api/services',
+    docs: 'http://localhost:3001/api-docs',
+    user: 'http://localhost:3001/api/users',
+    reviews: 'http://localhost:3001/api/reviews',
+    services: 'http://localhost:3001/api/services',
   },
 ];
