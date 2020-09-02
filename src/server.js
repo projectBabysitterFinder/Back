@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const debug = require('debug')('app:server');
 const errors = require('./network/errors');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 
