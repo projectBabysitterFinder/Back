@@ -1,0 +1,1285 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "BabySitterFinder",
+    "description": "This API is a recurse for use the babysitter data.",
+    "contact": {
+      "name": "Hugo Andres Diaz Bernal",
+      "url": "https://www.hugo.com",
+      "email": "hugoandresdiazbernal@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://es.wikipedia.org/wiki/Licencia_MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api",
+      "description": "Desarrollo"
+    },
+    {
+      "url": "http://heroku.com/api",
+      "description": "Producción"
+    }
+  ],
+  "tags": [
+    {
+      "name": "users",
+      "description": "This is for all users data."
+    },
+    {
+      "name": "reviews",
+      "description": "This is for all reviews data."
+    },
+    {
+      "name": "services",
+      "description": "This is for all services data."
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["users"],
+        "description": "Users list",
+        "operationId": "usersGET",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Users"
+      },
+      "put": {
+        "tags": ["users"],
+        "description": "User created",
+        "operationId": "userPUT",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "User Update",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Users"
+      },
+      "post": {
+        "tags": ["users"],
+        "description": "User created",
+        "operationId": "userPOST",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "User Created",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Users"
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["users"],
+        "description": "List user by id = ID_ROL, users or babysitter",
+        "operationId": "userGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the rol user",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get users by rol",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "users"
+      },
+      "delete": {
+        "tags": ["users"],
+        "description": "You can delete user",
+        "operationId": "usersDELETE",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Delete a user for id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "2"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user delete",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in server",
+                    "body": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "users"
+      }
+    },
+    "/users/user/{id}": {
+      "get": {
+        "tags": ["users"],
+        "description": "List user by id, users",
+        "operationId": "useruserGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the rol user",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get users by rol",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "user",
+                    "body": {
+                      "ID": 1,
+                      "ID_ROL": 2,
+                      "DES_FULNAME": "Carlo Anchelloty",
+                      "DATE_BIRTH": "1990-03-19 00-00-00",
+                      "DES_USER": "ksakdee",
+                      "DES_PASSWORK": "ertyuiodfghjknmghj5678+{-",
+                      "DES_ADDRESS": "calle la arboleda",
+                      "DES_ADDRESS_LATLONG": 20.01345678,
+                      "NUM_PHONE": "20-123-345-2345",
+                      "DES_EMAIL": "platzi@platzi.com"
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "NotFound recurse",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 500,
+                    "message": "Error in the query",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "users"
+      }
+    },
+    "/reviews": {
+      "get": {
+        "tags": ["reviews"],
+        "description": "Reviews list",
+        "operationId": "reviewsGET",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["reviews"],
+        "description": "Reviews list",
+        "operationId": "reviewsPOST",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Reviews"
+      }
+    },
+    "/reviews/{id}": {
+      "get": {
+        "tags": ["reviews"],
+        "description": "Reviews list",
+        "operationId": "reviewsbyidGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the reviews",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["reviews"],
+        "description": "Reviews list",
+        "operationId": "reviewsbyidDELETE",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the reviews",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Reviews"
+      }
+    },
+    "/reviews/byNana/{id}": {
+      "get": {
+        "tags": ["reviews"],
+        "description": "Reviews list",
+        "operationId": "reviewsbyNanaGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the reviews by babysitter",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Reviews"
+      }
+    },
+    "/services": {
+      "get": {
+        "tags": ["services"],
+        "description": "Services list",
+        "operationId": "servicesGET",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["services"],
+        "description": "Services Post",
+        "operationId": "servicesPUT",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        },
+        "x-swagger-router-controller": "Services"
+      },
+      "post": {
+        "tags": ["services"],
+        "description": "Services Post",
+        "operationId": "servicesPOST",
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/services/{id}": {
+      "get": {
+        "tags": ["services"],
+        "description": "Services by id",
+        "operationId": "servicesbyidGET",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "key for the reviews by services",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": false,
+                    "status": 200,
+                    "message": "Successful request",
+                    "body": {
+                      "ID": 1,
+                      "ID_USER_CLIENT": 2,
+                      "ID_USER_BABYSITTER": 4,
+                      "DES_OPINION": "curae mauris viverra diam vitae quam suspendisse",
+                      "NUM_STARTS": 4,
+                      "NUM_STATUS": 2
+                    }
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Recurse Notfount",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "error": true,
+                    "status": 400,
+                    "message": "Error Server",
+                    "body": []
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "users": {
+        "properties": {
+          "ID": {
+            "type": "integer"
+          },
+          "ID_ROL": {
+            "type": "integer"
+          },
+          "DES_FULNAME": {
+            "type": "string"
+          },
+          "DATE_BIRTH": {
+            "type": "string"
+          },
+          "DES_USER": {
+            "type": "string"
+          },
+          "DES_PASSWORK": {
+            "type": "string"
+          },
+          "DES_ADDRESS": {
+            "type": "string"
+          },
+          "DES_ADDRESS_LATLONG": {
+            "type": "number"
+          },
+          "NUM_PHONE": {
+            "type": "string"
+          },
+          "DES_EMAIL": {
+            "type": "string"
+          }
+        }
+      },
+      "services": {
+        "type": "object",
+        "properties": {
+          "ID": {
+            "type": "number"
+          },
+          "ID_USER_CLIENT": {
+            "type": "number"
+          },
+          "ID_USER_BABYSITTER": {
+            "type": "number"
+          },
+          "DES_ADDRESS_LATLONG": {
+            "type": "string"
+          },
+          "DES_RECOMMENDATIONS": {
+            "type": "string"
+          },
+          "DES_DATA_BOYS": {
+            "type": "object"
+          },
+          "DES_DATA_HOURS": {
+            "type": "object"
+          },
+          "NUM_TOTAL_COST": {
+            "type": "number"
+          },
+          "NUM_STATUS": {
+            "type": "number"
+          }
+        }
+      },
+      "reviews": {
+        "properties": {
+          "ID": {
+            "type": "number"
+          },
+          "ID_USER_CLIENT": {
+            "type": "number"
+          },
+          "ID_USER_BABYSITTER": {
+            "type": "number"
+          },
+          "DES_OPINION": {
+            "type": "string"
+          },
+          "NUM_STARTS": {
+            "type": "number"
+          },
+          "NUM_STATUS": {
+            "type": "number"
+          }
+        }
+      },
+      "user_meta": {
+        "properties": {
+          "ID": {
+            "type": "number"
+          },
+          "ID_USER": {
+            "type": "number"
+          },
+          "DES_DATA_STUDES": {
+            "type": "object"
+          },
+          "DES_DATA_SPECIALTIES": {
+            "type": "object"
+          },
+          "DES_DATA_ABILITIES": {
+            "type": "object"
+          },
+          "DES_DATA_EXPERIECE": {
+            "type": "object"
+          },
+          "DES_DATA_AVAILABILITY": {
+            "type": "object"
+          },
+          "DES_DATA_SERVICE_TIME": {
+            "type": "string"
+          },
+          "NUM_HOURLY_RATE": {
+            "type": "number"
+          }
+        }
+      },
+      "roles": {
+        "properties": {
+          "ID": {
+            "type": "number"
+          },
+          "DES_ROL_NAME": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

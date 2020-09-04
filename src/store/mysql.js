@@ -38,7 +38,7 @@ handleCon();
 
 const list = (table) => {
   return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM ${table}`, (err, data) => {
+    connection.query(`SELECT * FROM ${table} WHERE NUM_STATUS>0`, (err, data) => {
       if (err) return reject(err);
       resolve(data);
     });
@@ -48,7 +48,7 @@ const list = (table) => {
 const listRol = (table, rol) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM ${table} WHERE ID_ROL = ${rol}`,
+      `SELECT * FROM ${table} WHERE ID_ROL = ${rol} AND NUM_STATUS>0`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -63,7 +63,7 @@ const listJoinByForeinKey = (table1,table2, columTable2) => {
     connection.query(
       `SELECT ${table1}.*,${table2}.*
       FROM ${table1}
-      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2};`,
+      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2} ${table1}.NUM_STATUS>0;`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -133,7 +133,7 @@ function update(table, data, metadata) {
 
 const remove = (table, id) => {
   return new Promise((resolve, reject) => {
-    connection.query(`DELETE FROM ${table} WHERE id = ${id}`, (err, result) => {
+    connection.query(`UPDATE ${table} SET NUM_STATUS=0 WHERE id = ${id}`, (err, result) => {
       if (err) {
         return reject(err);
       }
