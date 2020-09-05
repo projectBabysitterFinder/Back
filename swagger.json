@@ -20,7 +20,7 @@
       "description": "Desarrollo"
     },
     {
-      "url": "http://heroku.com/api",
+      "url": "https://babys-api.herokuapp.com/api",
       "description": "Producción"
     }
   ],
