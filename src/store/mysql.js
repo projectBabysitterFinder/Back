@@ -63,7 +63,7 @@ const listJoinByForeinKey = (table1,table2, columTable2) => {
     connection.query(
       `SELECT ${table1}.*,${table2}.*
       FROM ${table1}
-      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2} ${table1}.NUM_STATUS>0;`,
+      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2} AND ${table1}.NUM_STATUS>0;`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
