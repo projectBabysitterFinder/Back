@@ -11,7 +11,7 @@ module.exports = router;
 
 const message = [
   {
-    docs: `https://babys-api.herokuapp.com/api/api-docs`,
+    docs: `https://babys-api.herokuapp.com/api-docs`,
     user: `https://babys-api.herokuapp.com/api/users`,
     reviews: `https://babys-api.herokuapp.com/api/reviews`,
     services: `https://babys-api.herokuapp.com/api/services`,
