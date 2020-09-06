@@ -38,7 +38,7 @@ handleCon();
 
 const list = (table) => {
   return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM ${table} WHERE NUM_STATUS>0`, (err, data) => {
+    connection.query(`SELECT * FROM ${table} `, (err, data) => {
       if (err) return reject(err);
       resolve(data);
     });
@@ -48,7 +48,7 @@ const list = (table) => {
 const listRol = (table, rol) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM ${table} WHERE ID_ROL = ${rol} AND NUM_STATUS>0`,
+      `SELECT * FROM ${table} WHERE ID_ROL = ${rol}`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -63,7 +63,7 @@ const listJoinByForeinKey = (table1,table2, columTable2) => {
     connection.query(
       `SELECT ${table1}.*,${table2}.*
       FROM ${table1}
-      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2} AND ${table1}.NUM_STATUS>0;`,
+      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2};`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -90,20 +90,12 @@ const getByCustomId = (table, id,colum) => {
   });
 };
 
-function insert(table, data, metadata) {
+function insert(table, data) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
       if (err) return reject(err);
-      if (metadata!=undefined) {
-        let idusuario=result.insertId;
-        metadata.ID_USUARIO=idusuario;
-        connection.query(`INSERT INTO USER_META SET ?`,metadata,(err,res) => {
-          if (err) return reject(err);
-          resolve(res);
-        })
-      } else {
         resolve(result);
-      }
+      
       
     });
   });

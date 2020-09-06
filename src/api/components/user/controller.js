@@ -40,21 +40,7 @@ module.exports = (injectedStore) => {
       NUM_STATUS: body.NUM_STATUS,
     };
     user.DES_PASSWORD = bcrypt.hashSync(user.DES_PASSWORD, 5);
-    if (body.ID_ROL == 2) {
-      const userMeta = {};
-      userMeta.DES_DATA_STUDIES = body.DES_DATA_STUDIES;
-      userMeta.DES_DATA_SPECIALTIES = body.DES_DATA_SPECIALTIES;
-      userMeta.DES_DATA_ABILITIES = body.DES_DATA_ABILITIES;
-      userMeta.DES_DATA_EXPERIECE = body.DES_DATA_EXPERIECE;
-      userMeta.DES_DATA_AVAILABILITY = body.DES_DATA_AVAILABILITY;
-      userMeta.DES_DATA_SERVICE_TIME = body.DES_DATA_SERVICE_TIME;
-      userMeta.NUM_HOURLY_RATE = body.NUM_HOURLY_RATE;
-      return store.insert(TABLE, user, userMeta);
-    } else {
       return store.insert(TABLE, user);
-    }
-
-
   };
 
   const update = async (body) => {

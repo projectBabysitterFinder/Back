@@ -15,5 +15,6 @@ const message = [
     user: `https://babys-api.herokuapp.com/api/users`,
     reviews: `https://babys-api.herokuapp.com/api/reviews`,
     services: `https://babys-api.herokuapp.com/api/services`,
+    meta: `https://babys-api.herokuapp.com/api/meta`,
   },
 ];

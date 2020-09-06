@@ -23,7 +23,6 @@ const listRol = (req, res, next) => {
           listFinal[x].DES_DATA_SPECIALTIES=JSON.parse(listFinal[x].DES_DATA_SPECIALTIES);
           listFinal[x].DES_DATA_ABILITIES=JSON.parse(listFinal[x].DES_DATA_ABILITIES);
           listFinal[x].DES_DATA_EXPERIECE=JSON.parse(listFinal[x].DES_DATA_EXPERIECE);
-          listFinal[x].DES_DATA_AVAILABILITY=JSON.parse(listFinal[x].DES_DATA_AVAILABILITY);
           listFinal[x].DES_DATA_SERVICE_TIME=JSON.parse(listFinal[x].DES_DATA_SERVICE_TIME);
         }
         response.success(req, res, listFinal, 200);
