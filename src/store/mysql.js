@@ -51,7 +51,7 @@ const list = (table) => {
 const listRol = (table, rol) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM ${table} WHERE ID_ROL = ${rol} AND NUM_STATUS>0`,
+      `SELECT * FROM ${table} WHERE ID_ROL = ${rol}`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -95,7 +95,7 @@ const getByCustomId = (table, id, colum) => {
   });
 };
 
-function insert(table, data, metadata) {
+function insert(table, data) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
       if (err) return reject(err);
