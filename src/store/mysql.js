@@ -99,20 +99,7 @@ function insert(table, data) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
       if (err) return reject(err);
-      if (metadata != undefined) {
-        let idusuario = result.insertId;
-        metadata.ID_USUARIO = idusuario;
-        connection.query(
-          `INSERT INTO USER_META SET ?`,
-          metadata,
-          (err, res) => {
-            if (err) return reject(err);
-            resolve(res);
-          }
-        );
-      } else {
         resolve(result);
-      }
     });
   });
 }
