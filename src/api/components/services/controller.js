@@ -19,6 +19,8 @@ module.exports = (injectedStore) => {
     let services = {
       ID_USER_CLIENT: body.ID_USER_CLIENT,
       ID_USER_BABYSITTER: body.ID_USER_BABYSITTER,
+      DES_EMAIL: body.DES_EMAIL,
+      DES_PHONE: body.DES_PHONE,
       DES_ADDRESS: body.DES_ADDRESS,
       DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
       DES_RECOMMENDATIONS: body.DES_RECOMMENDATIONS,
