@@ -16,7 +16,7 @@ module.exports = (injectedStore) => {
   };
 
   const insert = async (body) => {
-    const services = {
+    let services = {
       ID_USER_CLIENT: body.ID_USER_CLIENT,
       ID_USER_BABYSITTER: body.ID_USER_BABYSITTER,
       DES_ADDRESS: body.DES_ADDRESS,
@@ -26,6 +26,14 @@ module.exports = (injectedStore) => {
       DES_DATA_HOURS: body.DES_DATA_HOURS,
       NUM_TOTAL_COST: body.NUM_TOTAL_COST,
       NUM_STATUS: body.NUM_STATUS,
+    }
+
+    try {
+      services.DES_DATA_BOYS=JSON.stringify(services.DES_DATA_BOYS);
+      services.DES_DATA_HOURS=JSON.stringify(services.DES_DATA_HOURS);
+    } catch (error) {
+      services.DES_DATA_BOYS=body.DES_DATA_BOYS;
+      services.DES_DATA_HOURS=body.DES_DATA_HOURS;
     }
     return store.insert(TABLE, services);
   };
