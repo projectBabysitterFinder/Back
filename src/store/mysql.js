@@ -29,7 +29,7 @@ function handleCon() {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
       handleCon();
     } else {
-      throw err;
+      handleCon()
     }
   });
 }

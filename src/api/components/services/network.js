@@ -9,8 +9,14 @@ const list = (req, res, next) => {
     .then((list) => {
       let servicesFinal=list;
       for (let x = 0; x < servicesFinal.length; x++) {
-        servicesFinal[x].DES_DATA_BOYS=JSON.parse(servicesFinal[x].DES_DATA_BOYS);
-        servicesFinal[x].DES_DATA_HOURS=JSON.parse(servicesFinal[x].DES_DATA_HOURS);
+        try {
+          servicesFinal[x].DES_DATA_BOYS=JSON.parse(servicesFinal[x].DES_DATA_BOYS);
+          servicesFinal[x].DES_DATA_HOURS=JSON.parse(servicesFinal[x].DES_DATA_HOURS);
+        } catch (error) {
+          servicesFinal[x].DES_DATA_BOYS=JSON.parse(JSON.stringify(servicesFinal[x].DES_DATA_BOYS));
+          servicesFinal[x].DES_DATA_HOURS=JSON.parse(JSON.stringify(servicesFinal[x].DES_DATA_HOURS));
+        }
+        
       }
       response.success(req, res, servicesFinal, 200);
     })
@@ -23,8 +29,14 @@ const get = (req, res, next) => {
     .then((services) => {
       let servicesFinal=services;
       for (let x = 0; x < servicesFinal.length; x++) {
-        servicesFinal[x].DES_DATA_BOYS=JSON.parse(servicesFinal[x].DES_DATA_BOYS);
-        servicesFinal[x].DES_DATA_HOURS=JSON.parse(servicesFinal[x].DES_DATA_HOURS);
+        try {
+          servicesFinal[x].DES_DATA_BOYS=JSON.parse(servicesFinal[x].DES_DATA_BOYS);
+          servicesFinal[x].DES_DATA_HOURS=JSON.parse(servicesFinal[x].DES_DATA_HOURS);
+        } catch (error) {
+          servicesFinal[x].DES_DATA_BOYS=JSON.parse(JSON.stringify(servicesFinal[x].DES_DATA_BOYS));
+          servicesFinal[x].DES_DATA_HOURS=JSON.parse(JSON.stringify(servicesFinal[x].DES_DATA_HOURS));
+        }
+        
       }
       response.success(req, res, servicesFinal, 200);
     })
