@@ -39,7 +39,7 @@ handleCon();
 const list = (table) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM ${table} WHERE NUM_STATUS>0`,
+      `SELECT * FROM ${table}`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -63,9 +63,9 @@ const listRol = (table, rol) => {
 const listJoinByForeinKey = (table1, table2, columTable2) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT ${table1}.*,${table2}.*
-      FROM ${table1}
-      INNER JOIN ${table2} ON ${table1}.ID=${table2}.${columTable2};`,
+      `SELECT ${table2}.*,${table1}.*
+      FROM ${table2}
+      INNER JOIN ${table1} ON ${table1}.ID=${table2}.${columTable2};`,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -79,6 +79,28 @@ const get = (table, id) => {
     connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
       if (err) return reject(err);
       resolve(data);
+    });
+  });
+};
+
+const getUser = (table, id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
+      if (err) return reject(err);
+      if (data[0].ID_ROL==2) {
+        connection.query(
+          `SELECT AVAILABILITY.*,USER_META.*,${table}.*
+          FROM USER_META
+          INNER JOIN ${table} ON ${table}.ID=${id} AND (${table}.ID=USER_META.ID_USER) 
+          INNER JOIN AVAILABILITY ON AVAILABILITY.ID=USER_META.ID_AVAILABILITY ;`,
+          (err, data2) => {
+            if (err) return reject(err);
+            resolve(data2);
+          }
+        );
+      } else {
+        resolve(data);
+      }
     });
   });
 };
@@ -162,4 +184,5 @@ module.exports = {
   listRol,
   listJoinByForeinKey,
   getByCustomId,
+  getUser,
 };

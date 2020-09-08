@@ -1,4 +1,5 @@
 const TABLE = 'USER_META';
+const AVAILABILITY = 'AVAILABILITY';
 
 module.exports = (injectedStore) => {
   let store = injectedStore;
@@ -8,7 +9,7 @@ module.exports = (injectedStore) => {
   }
 
   const list = () => {
-    return store.list(TABLE);
+    return store.listJoinByForeinKey(AVAILABILITY,TABLE,'ID_AVAILABILITY');
   };
 
 

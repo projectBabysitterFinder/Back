@@ -22,7 +22,7 @@ module.exports = (injectedStore) => {
   };
 
   const get = (id) => {
-    return store.get(TABLE, id);
+    return store.getUser(TABLE, id);
   };
 
   const insert = async (body) => {
@@ -40,7 +40,7 @@ module.exports = (injectedStore) => {
       NUM_STATUS: body.NUM_STATUS,
     };
     user.DES_PASSWORD = bcrypt.hashSync(user.DES_PASSWORD, 5);
-      return store.insert(TABLE, user);
+    return store.insert(TABLE, user);
   };
 
   const update = async (body) => {
