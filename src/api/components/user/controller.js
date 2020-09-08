@@ -37,6 +37,9 @@ module.exports = (injectedStore) => {
       DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
       NUM_PHONE: body.NUM_PHONE,
       DES_EMAIL: body.DES_EMAIL,
+      DES_CONUNTRY: body.DES_CONUNTRY,
+      DES_STATE: body.DES_STATE,
+      DES_CITY: body.DES_CITY,
       NUM_STATUS: body.NUM_STATUS,
     };
     user.DES_PASSWORD = bcrypt.hashSync(user.DES_PASSWORD, 5);
@@ -56,6 +59,9 @@ module.exports = (injectedStore) => {
       DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
       NUM_PHONE: body.NUM_PHONE,
       DES_EMAIL: body.DES_EMAIL,
+      DES_CONUNTRY: body.DES_CONUNTRY,
+      DES_STATE: body.DES_STATE,
+      DES_CITY: body.DES_CITY,
       NUM_STATUS: body.NUM_STATUS,
     };
     if (body.ID_ROL == 2) {
@@ -64,9 +70,9 @@ module.exports = (injectedStore) => {
       userMeta.DES_DATA_SPECIALTIES = body.DES_DATA_SPECIALTIES;
       userMeta.DES_DATA_ABILITIES = body.DES_DATA_ABILITIES;
       userMeta.DES_DATA_EXPERIECE = body.DES_DATA_EXPERIECE;
-      userMeta.DES_DATA_AVAILABILITY = body.DES_DATA_AVAILABILITY;
       userMeta.DES_DATA_SERVICE_TIME = body.DES_DATA_SERVICE_TIME;
       userMeta.NUM_HOURLY_RATE = body.NUM_HOURLY_RATE;
+      userMeta.ID_AVAILABILITY = body.ID_AVAILABILITY;
       return store.update(TABLE, user, userMeta);
     } else {
       return store.update(TABLE, user);
