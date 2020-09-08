@@ -22,7 +22,7 @@ module.exports = (injectedStore) => {
   };
 
   const get = (id) => {
-    return store.getUser(TABLE, id);
+      return store.getUser(TABLE, id);
   };
 
   const insert = async (body) => {

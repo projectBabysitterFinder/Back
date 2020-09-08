@@ -85,13 +85,13 @@ const get = (table, id) => {
 
 const getUser = (table, id) => {
   return new Promise((resolve, reject) => {
-    connection.query(`SELECT * FROM ${table} WHERE id = ${id}`, (err, data) => {
+    connection.query(`SELECT * FROM ${table} WHERE `+((!isNaN(parseFloat(id)) && isFinite(id)) ? `ID`:`DES_EMAIL`)+` = '${id}'`, (err, data) => {
       if (err) return reject(err);
       if (data[0].ID_ROL==2) {
         connection.query(
           `SELECT AVAILABILITY.*,USER_META.*,${table}.*
           FROM USER_META
-          INNER JOIN ${table} ON ${table}.ID=${id} AND (${table}.ID=USER_META.ID_USER) 
+          INNER JOIN ${table} ON ${table}.ID=${data[0].ID} AND (${table}.ID=USER_META.ID_USER) 
           INNER JOIN AVAILABILITY ON AVAILABILITY.ID=USER_META.ID_AVAILABILITY ;`,
           (err, data2) => {
             if (err) return reject(err);
