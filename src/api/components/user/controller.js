@@ -37,7 +37,7 @@ module.exports = (injectedStore) => {
       DES_ADDRESS_LATLONG: body.DES_ADDRESS_LATLONG,
       NUM_PHONE: body.NUM_PHONE,
       DES_EMAIL: body.DES_EMAIL,
-      DES_CONUNTRY: body.DES_CONUNTRY,
+      DES_COUNTRY: body.DES_CONUNTRY,
       DES_STATE: body.DES_STATE,
       DES_CITY: body.DES_CITY,
       NUM_STATUS: body.NUM_STATUS,
