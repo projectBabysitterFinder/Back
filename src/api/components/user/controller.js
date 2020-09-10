@@ -84,6 +84,10 @@ module.exports = (injectedStore) => {
     return await store.remove(TABLE, id);
   };
 
+  const getEmail = async (email) => {
+    return await store.getByCustomId(TABLE, 'DES_EMAIL', email)
+  }
+
   return {
     list,
     get,
@@ -91,6 +95,7 @@ module.exports = (injectedStore) => {
     update,
     remove,
     listRol,
-    listMetaData
+    listMetaData,
+    getEmail
   };
 };

@@ -19,16 +19,25 @@ const listRol = (req, res, next) => {
       .then((list) => {
         let listFinal = list;
         for (let x = 0; x < listFinal.length; x++) {
-          listFinal[x].DES_DATA_STUDIES=JSON.parse(listFinal[x].DES_DATA_STUDIES);
-          listFinal[x].DES_DATA_SPECIALTIES=JSON.parse(listFinal[x].DES_DATA_SPECIALTIES);
-          listFinal[x].DES_DATA_ABILITIES=JSON.parse(listFinal[x].DES_DATA_ABILITIES);
-          listFinal[x].DES_DATA_EXPERIECE=JSON.parse(listFinal[x].DES_DATA_EXPERIECE);
-          listFinal[x].DES_DATA_SERVICE_TIME=JSON.parse(listFinal[x].DES_DATA_SERVICE_TIME);
+          listFinal[x].DES_DATA_STUDIES = JSON.parse(
+            listFinal[x].DES_DATA_STUDIES
+          );
+          listFinal[x].DES_DATA_SPECIALTIES = JSON.parse(
+            listFinal[x].DES_DATA_SPECIALTIES
+          );
+          listFinal[x].DES_DATA_ABILITIES = JSON.parse(
+            listFinal[x].DES_DATA_ABILITIES
+          );
+          listFinal[x].DES_DATA_EXPERIECE = JSON.parse(
+            listFinal[x].DES_DATA_EXPERIECE
+          );
+          listFinal[x].DES_DATA_SERVICE_TIME = JSON.parse(
+            listFinal[x].DES_DATA_SERVICE_TIME
+          );
         }
         response.success(req, res, listFinal, 200);
       })
       .catch(next);
-
   } else {
     controller
       .listRol(req.params.ID_ROL)
@@ -75,9 +84,19 @@ const remove = (req, res, next) => {
     .catch(next);
 };
 
+const getEmail = (req, res, next) => {
+  controller
+    .getEmail(`'${req.params.DES_EMAIL}'`)
+    .then((user) => {
+      response.success(req, res, user, 200);
+    })
+    .catch(next);
+};
+
 router.get('/', list);
 router.get('/:ID_ROL', listRol);
 router.get('/user/:id', get);
+router.get('/email/:DES_EMAIL', getEmail);
 router.post('/', insert);
 router.put('/', update);
 router.delete('/:id', remove);

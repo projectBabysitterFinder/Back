@@ -18,4 +18,5 @@ app.use(errors);
 
 const server = app.listen(process.env.PORT, () => {
   debug(`Listening http://localhost:${server.address().port}`);
+  console.log(`Listening http://localhost:${server.address().port}`);
 });
