@@ -60,12 +60,14 @@ const listRol = (table, rol) => {
   });
 };
 
-const listJoinByForeinKey = (table1, table2, columTable2) => {
+const listJoinByForeinKey = (table1, table2, columTable2,table3, columTable3) => {
   return new Promise((resolve, reject) => {
+    let consulta=`SELECT ${table2}.*,${table1}.*`+((table3!=undefined && columTable3!=undefined) ? (','+table3+'.* '):'')+
+    `FROM ${table2},${table1}`+((table3!=undefined && columTable3!=undefined) ? `,${table3} `:'')+`
+    WHERE ${table1}.ID=${table2}.${columTable2} `
+    +((table3!=undefined && columTable3!=undefined) ? ` AND ${table3}.ID=${table2}.${columTable3} `:'');
     connection.query(
-      `SELECT ${table2}.*,${table1}.*
-      FROM ${table2}
-      INNER JOIN ${table1} ON ${table1}.ID=${table2}.${columTable2};`,
+      consulta,
       (err, data) => {
         if (err) return reject(err);
         resolve(data);
@@ -73,6 +75,7 @@ const listJoinByForeinKey = (table1, table2, columTable2) => {
     );
   });
 };
+
 
 const get = (table, id) => {
   return new Promise((resolve, reject) => {

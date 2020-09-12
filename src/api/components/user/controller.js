@@ -1,6 +1,8 @@
 const TABLE = 'USERS';
 const METATABLE = 'USER_META';
 const FOREINKEYMETATABLE = 'ID_USER';
+const AVAILABILITYTABLE = 'AVAILABILITY';
+const FOREINKEYAVAILABILITYTABLE = 'ID_AVAILABILITY';
 const bcrypt = require('bcrypt');
 
 module.exports = (injectedStore) => {
@@ -18,7 +20,7 @@ module.exports = (injectedStore) => {
     return store.listRol(TABLE, rol);
   };
   const listMetaData = () => {
-    return store.listJoinByForeinKey(TABLE, METATABLE, FOREINKEYMETATABLE);
+    return store.listJoinByForeinKey(TABLE, METATABLE, FOREINKEYMETATABLE,AVAILABILITYTABLE,FOREINKEYAVAILABILITYTABLE);
   };
 
   const get = (id) => {
