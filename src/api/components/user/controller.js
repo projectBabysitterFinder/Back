@@ -20,11 +20,17 @@ module.exports = (injectedStore) => {
     return store.listRol(TABLE, rol);
   };
   const listMetaData = () => {
-    return store.listJoinByForeinKey(TABLE, METATABLE, FOREINKEYMETATABLE,AVAILABILITYTABLE,FOREINKEYAVAILABILITYTABLE);
+    return store.listJoinByForeinKey(
+      TABLE,
+      METATABLE,
+      FOREINKEYMETATABLE,
+      AVAILABILITYTABLE,
+      FOREINKEYAVAILABILITYTABLE
+    );
   };
 
   const get = (id) => {
-      return store.getUser(TABLE, id);
+    return store.getUser(TABLE, id);
   };
 
   const insert = async (body) => {
@@ -81,7 +87,6 @@ module.exports = (injectedStore) => {
     } else {
       return store.update(TABLE, user);
     }
-
   };
 
   const remove = async (id) => {
@@ -89,8 +94,8 @@ module.exports = (injectedStore) => {
   };
 
   const getEmail = async (email) => {
-    return await store.getByCustomId(TABLE, 'DES_EMAIL', email)
-  }
+    return await store.getByCustomId(TABLE, 'DES_EMAIL', email);
+  };
 
   return {
     list,
@@ -100,6 +105,6 @@ module.exports = (injectedStore) => {
     remove,
     listRol,
     listMetaData,
-    getEmail
+    getEmail,
   };
 };
