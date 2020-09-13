@@ -22,6 +22,7 @@ module.exports = (injectedStore) => {
   const listMetaData = () => {
     return store.listJoinByForeinKey(
       TABLE,
+      'ID',
       METATABLE,
       FOREINKEYMETATABLE,
       AVAILABILITYTABLE,

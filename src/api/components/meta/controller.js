@@ -9,12 +9,12 @@ module.exports = (injectedStore) => {
   }
 
   const list = () => {
-    return store.listJoinByForeinKey(AVAILABILITY,TABLE,'ID_AVAILABILITY');
+    return store.listJoinByForeinKey(AVAILABILITY,'ID_AVAILABILITY',TABLE,'ID_AVAILABILITY');
   };
 
 
   const get = (id) => {
-    return store.get(TABLE, id);
+    return store.getByCustomId(TABLE, id,'ID_META');
   };
 
   const insert = async (body) => {

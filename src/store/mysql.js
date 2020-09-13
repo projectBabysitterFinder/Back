@@ -60,12 +60,12 @@ const listRol = (table, rol) => {
   });
 };
 
-const listJoinByForeinKey = (table1, table2, columTable2,table3, columTable3) => {
+const listJoinByForeinKey = (table1,columTable1, table2, columTable2,table3, columTable3) => {
   return new Promise((resolve, reject) => {
     let consulta=`SELECT ${table2}.*,${table1}.*`+((table3!=undefined && columTable3!=undefined) ? (','+table3+'.* '):'')+
     `FROM ${table2},${table1}`+((table3!=undefined && columTable3!=undefined) ? `,${table3} `:'')+`
-    WHERE ${table1}.ID=${table2}.${columTable2} `
-    +((table3!=undefined && columTable3!=undefined) ? ` AND ${table3}.ID=${table2}.${columTable3} `:'');
+    WHERE ${table1}.${columTable1}=${table2}.${columTable2} `
+    +((table3!=undefined && columTable3!=undefined) ? ` AND ${table3}.${columTable3}=${table2}.${columTable3} `:'');
     connection.query(
       consulta,
       (err, data) => {
@@ -95,7 +95,7 @@ const getUser = (table, id) => {
           `SELECT AVAILABILITY.*,USER_META.*,${table}.*
           FROM USER_META
           INNER JOIN ${table} ON ${table}.ID=${data[0].ID} AND (${table}.ID=USER_META.ID_USER) 
-          INNER JOIN AVAILABILITY ON AVAILABILITY.ID=USER_META.ID_AVAILABILITY ;`,
+          INNER JOIN AVAILABILITY ON AVAILABILITY.ID_AVAILABILITY=USER_META.ID_AVAILABILITY ;`,
           (err, data2) => {
             if (err) return reject(err);
             resolve(data2);
