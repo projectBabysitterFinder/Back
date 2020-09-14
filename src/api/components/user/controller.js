@@ -77,13 +77,13 @@ module.exports = (injectedStore) => {
     };
     if (body.ID_ROL == 2) {
       const userMeta = {};
-      userMeta.DES_DATA_STUDIES = body.DES_DATA_STUDIES;
-      userMeta.DES_DATA_SPECIALTIES = body.DES_DATA_SPECIALTIES;
-      userMeta.DES_DATA_ABILITIES = body.DES_DATA_ABILITIES;
-      userMeta.DES_DATA_EXPERIECE = body.DES_DATA_EXPERIECE;
-      userMeta.DES_DATA_SERVICE_TIME = body.DES_DATA_SERVICE_TIME;
-      userMeta.NUM_HOURLY_RATE = body.NUM_HOURLY_RATE;
-      userMeta.ID_AVAILABILITY = body.ID_AVAILABILITY;
+      userMeta.DES_DATA_STUDIES = JSON.stringify(body.DES_DATA_STUDIES);
+      userMeta.DES_DATA_SPECIALTIES = JSON.stringify(body.DES_DATA_SPECIALTIES);
+      userMeta.DES_DATA_ABILITIES = JSON.stringify(body.DES_DATA_ABILITIES);
+      userMeta.DES_DATA_EXPERIECE = JSON.stringify(body.DES_DATA_EXPERIECE);
+      userMeta.DES_DATA_SERVICE_TIME = JSON.stringify(body.DES_DATA_SERVICE_TIME);
+      userMeta.NUM_HOURLY_RATE = JSON.stringify(body.NUM_HOURLY_RATE);
+      userMeta.ID_AVAILABILITY = JSON.stringify(body.ID_AVAILABILITY);
       return store.update(TABLE, user, userMeta);
     } else {
       return store.update(TABLE, user);
