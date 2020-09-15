@@ -52,7 +52,25 @@ const get = (req, res, next) => {
   controller
     .get(req.params.id)
     .then((user) => {
-      response.success(req, res, user, 200);
+      let listFinal = user;
+      if (listFinal[0].ID_ROL==2) {
+          listFinal[0].DES_DATA_STUDIES = JSON.parse(
+            listFinal[0].DES_DATA_STUDIES
+          );
+          listFinal[0].DES_DATA_SPECIALTIES = JSON.parse(
+            listFinal[0].DES_DATA_SPECIALTIES
+          );
+          listFinal[0].DES_DATA_ABILITIES = JSON.parse(
+            listFinal[0].DES_DATA_ABILITIES
+          );
+          listFinal[0].DES_DATA_EXPERIECE = JSON.parse(
+            listFinal[0].DES_DATA_EXPERIECE
+          );
+          listFinal[0].DES_DATA_SERVICE_TIME = JSON.parse(
+            listFinal[0].DES_DATA_SERVICE_TIME
+          );
+        }
+      response.success(req, res, listFinal, 200);
     })
     .catch(next);
 };

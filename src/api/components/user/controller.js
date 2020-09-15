@@ -53,7 +53,30 @@ module.exports = (injectedStore) => {
       NUM_STATUS: body.NUM_STATUS,
     };
     user.DES_PASSWORD = bcrypt.hashSync(user.DES_PASSWORD, 5);
-    return store.insert(TABLE, user);
+    if (body.ID_ROL == 2) {
+      let meta = {}
+      try {
+        meta.DES_DATA_STUDIES = JSON.stringify(body.DES_DATA_STUDIES);
+        meta.DES_DATA_SPECIALTIES = JSON.stringify(body.DES_DATA_SPECIALTIES);
+        meta.DES_DATA_ABILITIES = JSON.stringify(body.DES_DATA_ABILITIES);
+        meta.DES_DATA_EXPERIECE = JSON.stringify(body.DES_DATA_EXPERIECE);
+        meta.DES_DATA_SERVICE_TIME = JSON.stringify(body.DES_DATA_SERVICE_TIME);
+        meta.NUM_HOURLY_RATE = JSON.stringify(body.NUM_HOURLY_RATE);
+        meta.ID_AVAILABILITY = body.ID_AVAILABILITY;
+      } catch (error) {
+        meta.DES_DATA_STUDIES= body.DES_DATA_STUDIES;
+        meta.DES_DATA_SPECIALTIES= body.DES_DATA_SPECIALTIES;
+        meta.DES_DATA_ABILITIES= body.DES_DATA_ABILITIES;
+        meta.DES_DATA_EXPERIECE= body.DES_DATA_EXPERIECE;
+        meta.DES_DATA_SERVICE_TIME= body.DES_DATA_SERVICE_TIME;
+        meta.NUM_HOURLY_RATE= body.NUM_HOURLY_RATE;
+        meta.ID_AVAILABILITY= body.ID_AVAILABILITY;
+      }
+      return store.insert(TABLE, user,meta,METATABLE);
+    }else{
+      return store.insert(TABLE, user);
+    }
+    
   };
 
   const update = async (body) => {

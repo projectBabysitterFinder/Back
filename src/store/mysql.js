@@ -120,11 +120,19 @@ const getByCustomId = (table, id, colum) => {
   });
 };
 
-function insert(table, data) {
+function insert(table, data,meta,metatable) {
   return new Promise((resolve, reject) => {
     connection.query(`INSERT INTO ${table} SET ?`, data, (err, result) => {
       if (err) return reject(err);
-        resolve(result);
+        if (meta!=undefined) {
+          meta.ID_USER=result.insertId;
+          connection.query(`INSERT INTO ${metatable} SET ?`, meta, (err, resultado) => {
+            if (err) return reject(err);
+                resolve(result);
+          });
+        } else {
+          resolve(result);
+        }
     });
   });
 }
