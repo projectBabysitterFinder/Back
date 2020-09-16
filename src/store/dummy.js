@@ -1,4 +1,5 @@
 const db = require('./db');
+console.log(db);
 
 const list = async (tabla) => {
 	return db[tabla] || [];
