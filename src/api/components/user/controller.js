@@ -12,8 +12,8 @@ module.exports = (injectedStore) => {
     store = require('../../../store/dummy');
   }
 
-  const list = () => {
-    return store.list(TABLE);
+  const list = async () => {
+    return await store.list(TABLE);
   };
 
   const listRol = (rol) => {
