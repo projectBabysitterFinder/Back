@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 const router = require('./network/routes');
 router(app);
 
-
 app.use(errors);
 
 const server = app.listen(process.env.PORT, () => {
